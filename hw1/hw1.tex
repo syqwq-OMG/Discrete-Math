@@ -1,0 +1,103 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{1} % Number of Homework
+\def\Session{Fall 2024}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{CS70--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+propositions: a, b \\
+proposition a is \emph{true}. \\
+proposition b is \emph{false}.
+
+
+\section*{Q2}
+\begin{qparts}
+\item 
+$p\to q$ means 
+if u have the flu, u'll miss the final examination.
+
+\item 
+$\lnot p \leftrightarrow r$ means 
+u don't have the flu if and 
+only if u pass the course.
+
+
+\item 
+$q\to \lnot r$ means 
+if u miss the final examination, then u won't 
+pass the course.
+
+
+\item 
+$(p \to  \lnot r) \lor (q \to  \lnot r)$ means 
+either your having the flu or your missing the fianl examination 
+will make u fail the course.
+
+
+\item 
+$(p \land q)\lor (\lnot q \land r)$ means 
+either u have the flu and miss the final examination
+or u don't miss the final exam and pass the course.
+
+\end{qparts}
+
+\section*{Q3}
+see another paper
+
+\section*{Q4}
+\begin{qparts}
+
+    \item 
+    $11000 \land (01101 \lor 11011)=11000 \land 11111=11000$
+    
+    \item 
+    $(01111\land 10101)\lor 01000=00101\lor 01000=01101$
+    
+    \item 
+    $(01010 \oplus 11011) \oplus 01000=10001 \oplus 01000=11001$
+
+    \item 
+    $(11011 \lor 01010)\land (10001 \lor 11011)=11011 \land 11011=11011$
+    \end{qparts}
+    
+
+\section*{Q5}
+\begin{qparts}
+    \item $q \to p$
+    \item $q \land \lnot p$
+    \item $q \to p$
+\end{qparts}
+
+\section*{Q6}
+\begin{qparts}
+    \item because both types of cannibals will answer \emph{No}.
+    \item if i were to ask u whether u are a liar, what would u say?
+\end{qparts}
+
+
+\end{document}
