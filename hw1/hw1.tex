@@ -99,5 +99,52 @@ see another paper
     \item if i were to ask u whether u are a liar, what would u say?
 \end{qparts}
 
+\section*{Q7}
+\begin{qparts}
+    
+    \item $(p \land q)\to p \iff
+    (\lnot p \lor \lnot q)\lor p \iff true $
+
+    
+    \item $p \to (p \lor q) \iff \lnot p \lor (p \lor q)
+    \iff(\lnot p \lor p) \lor q \iff true$
+
+    
+    \item $\lnot p \to  (p \to q) \iff
+    p \lor (\lnot p \lor q) \iff(p \lor \lnot p) \lor q
+    \iff true$
+
+    
+    \item $(p \land q) \to (p \to  q) \iff
+    \lnot p \lor \lnot q \lor (\lnot p \lor q) \iff
+    true$
+
+    
+    \item $\lnot (p \to q)\to p \iff
+    \lnot (\lnot p \lor q) \to p 
+    \iff
+    (\lnot p \lor q) \lor p
+    \iff true$
+    
+    \item $\lnot (p \to q) \to \lnot q 
+    \iff (\lnot p \lor q) \lor \lnot q \iff true$
+\end{qparts}
+
+\section*{Q8}
+\begin{qparts}
+    
+    \item $(p \lor \lnot q)\land (\lnot p \lor q) \land (\lnot p \lor \lnot q)
+    \iff (\lnot p \to \lnot q) \land (p \to q) \land (p \to \lnot q)
+    $, so when $p$ is \emph{false} and $q$ is \emph{false}, the proposition is true.
+    
+    \item $(p \to q) \land (p \to \lnot q) \land (\lnot p \to q) \land (\lnot p \to \lnot q)$ when $p$ is \emph{true}, $q$ contradicts with $\lnot q$; 
+    when $p$ is \emph{false}, $q$ still contradicts with $\lnot q$. Thus,
+    this proposition is not satisfiable.
+
+    
+    \item $(p \leftrightarrow q) \land (\lnot p \leftrightarrow q)$ means $q$
+    has the same truth value with both $q$ and $\lnot q$ which leads to a contradiction. Thus, this proposition is not satisfiable.
+
+\end{qparts}
 
 \end{document}
