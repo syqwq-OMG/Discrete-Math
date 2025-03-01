@@ -1,0 +1,128 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{1} % Number of Homework
+\def\Session{Fall 2024}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{CS70--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+\begin{qparts}
+    
+    \item $\exists p(F(p)\land B(p)) \to \exists jL(j)$: 
+    If there exists a printer being out of service and busy, then 
+    then there exists a print job being lost.
+
+    \item $\forall pB(p) \to \exists jQ(j)$: 
+    If all printers are busy, then there must be 
+    a print job being queued.
+    
+    \item $\exists j(Q(j)\land L(j))\to \exists pF(p)$: 
+    If there exists a print job being lost and queued, then there exists
+    a printer being out of service.
+    
+    \item $(\forall pB(p) \land \forall jQ(j)) \to \exists jL(j)$:
+    If all printers are busy and all print jobs are queued, then
+    there exists a print job being lost.
+\end{qparts}
+
+
+
+\section*{Q2}
+\begin{qparts}
+    
+    \item $\lnot \forall x \exists y \forall zT(x,y,z)
+    \iff\exists x \forall y \exists z (\lnot T(x,y,z))$
+
+    
+    \item $\lnot (\forall x\forall yP(x,y)\lor \forall x\forall yQ(x,y))
+    \iff (\exists x\exists y\lnot P(x,y)) \land (\exists x \exists y \lnot Q(x,y))$
+    
+    \item $\lnot (\forall x \exists y (P(x,y)\land \exists zR(x,y,z))
+    )\iff\exists x \forall y \lnot (P(x,y)\land \exists zR(x,y,z))\\
+    \iff\exists x \forall y (\lnot P(x,y) \lor \forall z \lnot R(x,y,z))$
+\end{qparts}
+
+\section*{Q3}
+$P(x,y): 2x+y=0$ where $x,y \in \mathbb{R}$
+\begin{qparts}
+    \item $\forall x \exists yP(x,y)$ means for every $x$, 
+    there's a solution for $y$, which is a tautology. \\
+    $\forall y \exists xP(x,y)$ means for every $y$, 
+    there's a solution for $x$, which is a tautology as well.\\
+    Two tautologys has the same truth value all the time. Thus,
+    they're logically equivalent.
+    
+    \item 
+    $2x+y=0 \implies y=-2x$, let $x:=0.1$, then $y=-0.2 \notin \mathbb{Z}$, 
+    so the LHS(left hand side) is not a tautology.\\
+    $2x+y=0 \implies x=-\frac{y}{2}\in \mathbb{R}$, so the RHS is always true.
+    \\
+    So, the statement is not true.
+
+    
+    \item No. Let $P(x,y)$ be $x^{2}=y$, where $x,y \in \mathbb{R}$.
+\end{qparts}
+
+
+\section*{Q4}
+Let $L(x,y)$ be ``$x$ loves $y$'', where the domain for
+both $x$ and $y$ consists of all people in the world.
+
+\begin{qparts}
+    \item Everybody loves Jerry: 
+    $\forall x L(x,\text{Jerry})$.
+
+    \item Everybody loves somebody: 
+    $\forall x \exists yL(x,y)$.
+
+    \item There is somebody whom everybody loves: 
+    $\exists y \forall x L(x,y)$.
+    
+    \item There is somebody whom Lydia does not love:
+    $\exists y \lnot L(\text{Lydia},y)$.
+    
+    \item There is somebody whom no one loves:
+    $\exists y \forall x \lnot L(x,y)$.
+    
+    \item There is someone who loves no one besides himself or herself:
+    $\exists x (L(x,x)\land (\forall p (x\neq p\to \lnot L(x,p)))$.
+\end{qparts}
+
+\section*{Q5}
+
+
+\section*{Q6}
+
+
+\section*{Q7}
+
+
+\section*{Q8}
+
+
+
+\end{document}
