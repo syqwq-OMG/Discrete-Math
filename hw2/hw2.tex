@@ -5,7 +5,7 @@
 
 \def\Name{Yuquan Sun}  % Your name
 \def\SID{10234900421}  % Your student ID number
-\def\Homework{1} % Number of Homework
+\def\Homework{2} % Number of Homework
 \def\Session{Fall 2024}
 
 
@@ -113,15 +113,88 @@ both $x$ and $y$ consists of all people in the world.
 \end{qparts}
 
 \section*{Q5}
+\begin{qparts}
+    
+    \item $(p\to r)\land (q \to r)\to ((p \lor q)\to r)$
+    \begin{proof}
 
+        Hypotheses: 
+        \begin{itemize}
+            \item $p \to r \iff (\lnot p \lor r)$ is true.
+            \item $q \to r \iff(\lnot q \lor r)$ is true.
+        \end{itemize}
+        Thus, 
+        \begin{align*}
+            (p \lor q) \to r &\iff\lnot (p \lor q) \lor r 
+            \iff (\lnot p \land \lnot q)\lor r \\
+            &\iff (\lnot p \lor r) \land (\lnot q \lor r)
+        \end{align*}
+        the conclusion is drawn.
+    \end{proof}
+    
+    \item $(p \to q)\land (r \to s )\land (\lnot q\lor \lnot s) \to (p \to \lnot r)$
+    \begin{proof}
+        
+        Hypotheses:
+        \begin{itemize}
+            \item $p \to q$ is true.
+            \item $r \to s \iff \lnot s \to \lnot r$ is true.
+            \item $\lnot q \lor \lnot s \iff q \to \lnot s$ is true.
+        \end{itemize}
+        According to hypothetical syllogism, the conclusion is drawn.
+    \end{proof}
+    
+    \item $(p \to q)\land (r \to s) \land (p \lor r)\to (q \lor s)$
+    \begin{proof}
+
+        Hypotheses:
+        \begin{itemize}
+            
+            \item $p \to q \iff \lnot q \to \lnot p$ is true.
+            \item $r \to s$ is true.
+            \item $p \lor r \iff \lnot p \to r$ is true.
+        \end{itemize}
+        According to hypothetical syllogism, 
+        $\lnot q \to s \iff q \lor s$ is true.
+    \end{proof}
+    \item $((w \lor r)\to v) 
+    \land (v \to (c \lor s))
+    \land (s \to u)
+    \land \lnot c 
+    \land \lnot u
+    \to \lnot w$
+    \begin{proof}
+        
+        Hypotheses:
+        \begin{itemize}
+            
+            \item $(w \lor r)\to v$ is true.
+            \item $v \to (c \lor s)$ is true.
+            \item $s \to u$ is true.
+            \item $\lnot c$ is true, which means $c$ is false.
+            \item $\lnot u$ is true, which means $u$ is false.
+        \end{itemize}
+        Since $u$ is false and $s \to u$ is true, $s$ should be false.\\
+        Then,$c \lor s$ should be false, and given $v \to (c \lor s)$ is true,
+        we can deduce that $v$ is false.\\
+        Since $(w \lor r)\to v$ is true, $w \lor r$ is false. Hence, $w$ is false, which means $\lnot w$ is true.
+    \end{proof} 
+\end{qparts}
 
 \section*{Q6}
-
-
+If $\forall x(P(x)\lor Q(x)),
+\forall x(\lnot Q(x)\lor S(x)),
+\forall x(R(x)\to \lnot S(x))$, 
+and $\exists x\lnot P(x)$ are true, 
+then $\exists x\lnot R(x)$ is true.
+\begin{proof}
+    
+\end{proof}
 \section*{Q7}
 
 
 \section*{Q8}
+
 
 
 
