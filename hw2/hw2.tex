@@ -190,15 +190,54 @@ and $\exists x\lnot P(x)$ are true,
 then $\exists x\lnot R(x)$ is true.
 \begin{proof}
     
+    Hypotheses:
+    \begin{itemize}
+        
+        \item $\forall x(P(x)\lor Q(x))\iff\forall x(\lnot P(x)\to Q(x))$ is true.
+        \item $\forall x(\lnot Q(x)\lor S(x))\iff\forall x(Q(x)\to S(x))$ is true.
+        \item $\forall x(R(x)\to \lnot S(x))\iff\forall x(S(x)\to \lnot R(x))$ is true.
+        \item $\exists x\lnot P(x)$ is true.
+    \end{itemize}
+    Use the first 3 hypotheses and the logically syllogism, we can get:
+    \begin{equation*}
+      \forall x(\lnot P(x)\to \lnot R(x))
+    \end{equation*}
+    Since $\exists x\lnot P(x)$, use the existential instantiation rule, let $x$
+    be $a$, then $\lnot P(a)$ is true.\\
+    Then, use universal instantiation, $\lnot R(a)$ is true. 
+    The conclusion was drawn.
 \end{proof}
 \section*{Q7}
 \begin{qparts}
     
-    \item 
+    \item first \textbf{existential generalization}, then \textbf{universal instantiation}. 
+    \item first \textbf{universal instantiation}, then \textbf{modus ponens}.
 \end{qparts}
 
 \section*{Q8}
-
+\begin{proof}
+    
+    Let
+    \begin{itemize}
+        
+        \item $R$ be ``It is raining.''
+        \item $U$ be ``Yvette has her umbrella.''
+        \item $W$ be ``Yvette gets wet.''
+    \end{itemize}
+    Then, the \textbf{hypotheses} can be written as:
+    \begin{itemize}
+        
+        \item $\lnot R\lor U \iff R\to U$ is true.
+        \item $\lnot U \lor \lnot W \iff U \to \lnot W$ is true.
+        \item $R \lor \lnot W$ is true.
+    \end{itemize}
+    Conclusion: $\lnot W$.\\
+    If $R$ is true, then we can deduce that $U$ is true, and then
+    $\lnot W$ is true, the conclusion was drawn.\\
+    If $R$ is false, then since $R\lor \lnot W$ is true, $\lnot W$ must be true.
+    \\
+    Summarizing, we can infer that ``Yvette does not get wet.''.
+\end{proof}
 
 
 
