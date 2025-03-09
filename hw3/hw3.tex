@@ -1,0 +1,215 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
+\usepackage{setspace} % set space between lines
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{3} % Number of Homework
+\def\Session{Spring 2025}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{Discrete Math--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\onehalfspacing
+% \doublespacing
+
+\begin{document}
+\maketitle
+
+
+\section*{Q1}
+Show these statements are equivalent 
+$\forall  x \in \mathbb{Z}$
+\begin{enumerate}[a.]
+    
+    \item $3x+2$ is even .
+    \item $x+5$ is odd .
+    \item $x^{2}$ is even .
+\end{enumerate}
+\begin{proof}
+    \begin{description}
+        
+        \item[Proof for $\text{a.}\to \text{c.}$]
+        $(\forall x\in \mathbb{Z}) (2 \mid (3x+2)
+        \to 2\mid 3x)$. 
+        Since $\operatorname{gcd}(2,3)=1$, we can infer that 
+        $2\mid x$. Thus, $2\mid x^{2}\iff x^{2} $ is even.
+        
+        \item [Proof for $\text{c.} \to \text{b.}$]
+        Given that $x^{2}$ is even, $x$ must be even.
+        It is easy to be proved by contradiction. 
+        (Assume $x$ is odd, then $x^{2}$ must be odd as well).
+        Since $x $ is even, then $x+5$ is odd.
+        
+        \item [Proof for $\text{b.}\to \text{a.}$]
+        $x+5$ is odd indicates that $x $ is even. 
+        $2\mid x \implies 2\mid 3x \implies 2\mid (3x+2)$.
+    \end{description}
+    According to all 3 proofs above, all statements are logically equivalent.
+\end{proof}
+
+
+\section*{Q2}
+Prove that at least one of the real numbers $a_1,a_2, \ldots a_n$ is
+greater than or equal to the average of these numbers.\\
+\begin{proof}
+    For convenience, we denote 
+    $\bar{a}=\frac{1}{n}\sum_{i=1}^{n}a_i$.
+
+    We prove by contradiction.
+    \textbf{Assume that the statement is false}, i.e. 
+    $a_i < \bar{a}, \forall i \in \left\{ 1,2, \ldots n \right\}$.
+    
+    Then,
+    \begin{equation*}
+      \bar{a}=\frac{1}{n}(a_1+a_2+ \cdots +a_n)<
+      \frac{1}{n}(\bar{a}+\bar{a}+ \cdots +\bar{a})=\bar{a}
+    \end{equation*}
+    which leads to a contradiction.
+
+    Thus, the statement is true.
+\end{proof}
+
+
+\section*{Q3}
+Prove that there is no positive integer $n$ such that
+$n^{2}+n^{3}=100$.
+\\
+\begin{proof}
+    For all $n \in \mathbb{Z}_{+}$,
+    \begin{align*}
+        n^{2}+n^{3}=100 &\iff n^{2}(n+1)=100\\
+        &\iff n=\frac{100}{n^{2}}-1 \ge 1\\
+        &\implies (1 \le n^{2} \le 50)\land (n \in \mathbb{Z}_+)\\
+        &\implies n \in \left\{ 1,2,3,4,5,6,7 \right\}
+    \end{align*}
+
+    Verify the equation for all the 7 cases, we find that
+    there exists no solution. 
+    Thus, the statement is proved.
+\end{proof}
+
+
+\section*{Q4}
+Any dollar sum greater than 12 can be formed by the
+combination of 4 and 5 dollar coins .
+\\
+\begin{proof}
+    Using mathematical induction.
+\\
+    The property we want to prove is $P(n)$: 
+    ``$n$ can be written as the combination of 4 and 5''.
+    \\
+    I'll prove by cases and for each case, using the induction method.
+\\
+    First prove $\forall n\in \mathbb{N} (n>12) 
+    \land (n\equiv 1(\operatorname{mod} 4))\to P(n)$.
+    \begin{description}
+        \item [Base case:] $13=4\times 2+5$
+        \item [Inductive step:] We assume $P(k)$ is true for 
+        $k=4m+1,m \in \left\{ 3,4, \ldots  \right\}$, and
+        show $P(k+4)$ is right.
+        We first assume the Induction Hypothesis $P(k):k=4s+5t$,
+        $s,t \in \mathbb{N}$. Then, for $P(k+4)$, it is obvious that
+        $k+4=4(s+1)+5t$, this implies that $P(k+4)$ is satisfied.
+    \end{description}
+    From the Principle of Mathematical Induction, 
+    this implies that $\forall n\in \mathbb{N} (n>12) 
+    \land (n\equiv 1(\operatorname{mod} 4))\to P(n)$.
+    \\
+    In a simillar way, a change in the base case brings out:
+    \begin{itemize}
+        
+        \item $\forall n\in \mathbb{N} (n>12) 
+        \land (n\equiv 2(\operatorname{mod} 4))\to P(n)$.
+        
+        \item $\forall n\in \mathbb{N} (n>12) 
+        \land (n\equiv 3(\operatorname{mod} 4))\to P(n)$.
+        
+        \item $\forall n\in \mathbb{N} (n>12) 
+        \land (n\equiv 0(\operatorname{mod} 4))\to P(n)$.
+    \end{itemize}
+    Summing all the cases above, 
+    we can deduced that 
+    $\forall n \in \mathbb{N}(n>12)\to P(n)$.
+\end{proof}
+
+
+\section*{Q5}
+Prove that
+\begin{equation*}
+  3+3 \times 5+3\times 5^{2}+ \cdots +3\times 5^{n}=3(5^{n+1}-1)/4
+\end{equation*}
+whenever $n$ is a nonnegative integer.
+\\
+\begin{proof}
+    Using mathematical induction. 
+    \\
+    The property that we want
+    to prove $P(n)$ is
+    ``$\sum_{i=0}^n{3\cdot 5^{i}}=3(5^{n+1}-1)/4$''.
+    \begin{description}
+        
+        \item [Base cases:] We plug in $n=0$ to check that $P(0)$
+        is true: $3=3$.
+        
+        \item [Inductive step:] We assume that $P(k)$ is true 
+        for $k \ge 0$ and show that $P(k+1)$ is true.\\
+        We first assume the Induction Hypothesis 
+        $P(k):\sum_{i=0}^k{3\cdot 5^{i}}=3(5^{k+1}-1)/4$.\\
+        Then, for $P(k+1)$, 
+        we write it as $(\sum_{i=0}^k{3\cdot 5^{i}})+3\cdot 5^{k+1}$.
+        \\
+        Using the Induction Hypothesis,
+        \begin{align*}
+            \frac{3\cdot (5^{k+1}-1)}{4}+3\cdot 5^{k+1}
+            &=\frac{15\cdot 5^{k+1}-3}{4}\\
+            &=\frac{3\cdot (5^{k+2}-1)}{4}
+        \end{align*}
+        This implies $P(k+1)$ as required.
+    \end{description}
+    From the Principle of Mathematical Induction, 
+    this implies that $P(n)$ is true for every nonnegative integer $n$. 
+\end{proof}
+
+
+\section*{Q6}
+Prove that if $A_1,A_2, \ldots ,A_n$ and $B_1,B_2, \ldots ,B_n$ are sets
+s.t. $A_j\subseteq B_j$ for $j=1,2, \ldots ,n$, then
+\begin{equation*}
+  \bigcap_{j=1}^nA_j \subseteq  \bigcap_{j=1}^nB_j
+\end{equation*}\\
+\begin{proof}
+    Considering prove by contradiction.
+
+    \textbf{Assume the statement is false} i.e.
+    $\exists a (a\in \bigcap_{j=1}^nA_j ) 
+    \land (a \notin \bigcap_{j=1}^n B_j )$.
+
+    By definition, $a \in \bigcap_{j=1}^nA_j 
+    \implies \exists A_i\in \left\{ A_1,A_2, \ldots ,A_n \right\}(a \in A_i)$. Plus, $A_j \subseteq B_j$, we get $a \in B_i$.
+
+    However, $a \notin \bigcap_{j=1}^n B_j\implies
+    \forall j\in \left\{ 1,2, \ldots ,n \right\}(a \notin B_j)
+    \implies a\notin B_i$.
+    and this leads to a contradiction. 
+
+    Therefore, the statement is true.
+\end{proof}
+
+\end{document}
