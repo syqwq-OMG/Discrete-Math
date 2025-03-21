@@ -129,10 +129,6 @@ Let $S$ be a subset of a universal set $U$. The characteristic
 function $f_S$ of $S$ is the function from $U$ to $\{0, 1\}$ such that
 $f_S (x) = 1$ if $x$ belongs to $S $ and $f_S (x) = 0$ if $x$ does not belong
 to $S$. Let $ A$ and $B$ be sets. 
-\\
-Define $\beta \colon \{ \text{true}, \text{false} \} \to \{ 0,1 \}$, which
-maps \textbf{true} to $1$ and \textbf{false} to $0$.
-Let $p$ be ``$x \in A$'', $q$ be ``$x \in B$''.
 \begin{qparts}    
     \item $f_{A \cap B}(x)=f_{A}(x)\cdot f_{B}(x)$\\
     \begin{proof}
@@ -309,12 +305,121 @@ if and only if $\left\vert A \right\vert \le \left\vert \mathbb{Z}^{+} \right\ve
 \section*{Q12}
 Show that if $A$ and $B$ are sets, $A$ is uncountable, and $A \subseteq B$,
 then $B$ is uncountable.\\
-\begin{solution}
-    
-\end{solution}
+\begin{proof}
+
+    Use contradiction. Assuem $B$ is countable, then $\left\vert B  \right\vert 
+    \le \left\vert \mathbb{Z}^{+} \right\vert $, there we ensure an injection $f$ from $B$ to $\mathbb{Z}^{+}$. And $A \subseteq B$, thus we 
+    ensure an injection $g$ from $A$ to $B$. Then $g \circ  f$ is an injection from $A$ to $\mathbb{Z}^{+}$. Threrfore, $\left\vert A  \right\vert \le 
+    \left\vert \mathbb{Z}^{+} \right\vert $, which means $A$ is countable.
+    This contradicts
+    with ``$A$ is uncountable''. So, $B$ is uncountable.
+\end{proof}
 
 \section*{Q13}
+Show that if $A$, $ B$, and $C$ are sets such that $\left\vert A  \right\vert \le \left\vert B  \right\vert $ and
+$\left\vert B  \right\vert \le \left\vert C  \right\vert $, then 
+$\left\vert A \right\vert \le \left\vert C \right\vert  $.\\
+\begin{proof}
+    
+    Since, $\left\vert A  \right\vert \le \left\vert B  \right\vert $, we ensure an injection $f \colon A \to B$. Similarly, we ensure an 
+    injection $g\colon B \to C$. Then, $g \circ  f$ is an injection from $A$ 
+    to $C$. Therefore, $\left\vert A  \right\vert \le \left\vert C  \right\vert $.
+\end{proof}
+
+
+
 \section*{Q14}
+Let $A=\begin{pmatrix}
+-1 & 2 \\
+1  & 3 \\
+\end{pmatrix}$,
+\begin{qparts}
+    
+    \item Find $A^{T}, A^{-1}$, and $A^{3}$.
+    
+    $A^{T}=\begin{pmatrix}
+        -1 & 1 \\
+        2  & 3 \\
+        \end{pmatrix}$,
+    $A ^{-1}=\frac{1}{5} \begin{pmatrix}
+        -3 & 2 \\
+        1  & 1 \\
+        \end{pmatrix}$,
+    $A ^{3}=\begin{pmatrix}
+        1 & 18 \\
+        9  & 37 \\
+        \end{pmatrix}$.
+    
+    \item Find $(A ^{-1})^{3}$ and $(A^{3})^{-1}$.
+    
+    $(A ^{-1})^{3}=(A^{3})^{-1}=\frac{1}{125}\begin{pmatrix}
+        -37 & 18 \\
+        9 & -1 \\
+        \end{pmatrix}$.
+\end{qparts}
 
+\section*{Q15}
+Suppose that $A \in \mathbb{R}^{n\times n}$ where $n$ is a positive integer. Show that $A + A^{T}$ is symmetric.\\
+\begin{proof}
+    $(A+A^{T})^{T}=A^{T}+(A^{T})^{T}=A+A^{T}$.
+\end{proof}
 
+\section*{Q16}
+Let $A=\begin{pmatrix}
+    1 & 0 & 1 \\
+    1 & 1 & 0 \\
+    0 & 0 & 1 \\
+    \end{pmatrix}$ 
+    and $B=\begin{pmatrix}
+        0 & 1 & 1 \\
+        1 & 0 & 1 \\
+        1 & 0 & 1 \\
+        \end{pmatrix}$.
+    Find $A \land B$, $A \lor B$, and $A \odot B$.\\
+\begin{solution}
+
+    $A\land B=\begin{pmatrix}
+        0 & 0 & 1 \\
+        1 & 0 & 0 \\
+        0 & 0 & 1 \\
+        \end{pmatrix}$,
+    $A \lor B=\begin{pmatrix}
+        1 & 1 & 1 \\
+        1 & 1 & 1 \\
+        1 & 0 & 1 \\
+        \end{pmatrix}$,
+    $A \odot B=\begin{pmatrix}
+        1 & 1 & 1 \\
+        1 & 1 & 1 \\
+        1 & 0 & 1 \\
+        \end{pmatrix}$.
+\end{solution}
+
+\section*{Q17}
+Let $A$ be a zero-one matrix. Show that 
+\begin{qparts}
+    
+    \item $A \lor A=A$
+
+    For every entry $a_{ij}$ of matrix $A$, $a_{ij}\lor a_{ij}=a_{ij}$. Thus, 
+    $A \lor A=A$.
+
+    \item $A \land A=A$
+
+    For every entry $a_{ij}$ of matrix $A$, $a_{ij}\land a_{ij}=a_{ij}$. Thus, 
+    $A \land A=A$.
+\end{qparts}
+
+\section*{Q18}
+Let $A$ be an $n \times n$ zero-one matrix. Let $I$ be the $n \times n$ identity matrix. Show that $A \odot I=I \odot A=A$.
+\begin{proof}
+    
+    Denote $A[i,j]$ as the entry of matrix $A$ at $i$th row and $j$th column.
+
+    $(A \odot I)[i,j]=\bigvee_{k=1}^{n}(A[i,k]\land I[k,j])=A[i,j]$ since $I[i,j]=1 \iff i=j$. So, we have $A \odot I=A$.
+
+    Similarly, $(I \odot A)[i,j]=\bigvee_{k=1}^{n}(I[i,k]\land A[k,j])=A[i,j]$. Thus, $I \odot A=A$.
+
+    To sum up, we have $A \odot I=I \odot A=A$.
+\end{proof}
 \end{document}
