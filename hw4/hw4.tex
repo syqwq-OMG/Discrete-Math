@@ -1,0 +1,229 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
+\usepackage{setspace} % set space between lines
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{4} % Number of Homework
+\def\Session{Spring 2025}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{Discrete Math--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
+\newenvironment{solution}{{\bf Solution}:}{\smallskip}
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\onehalfspacing
+% \doublespacing
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+Given three sets $A$, $B$, and $C$ , please prove the following statements.
+
+Let $p$ be ``$x \in A$'', $q$ be ``$x \in B$'', $r$ be ``$x \in C$''.
+\begin{qparts}
+    
+    \item $(A \cap B) \subseteq A$ \\
+    \begin{proof}
+        According to the definition, 
+        $\forall x \in A \cap B (x \in A)$, and 
+        thus we have $(A \cap B) \subseteq A$.
+    \end{proof}
+
+    \item $A \cap (B-A)=\emptyset$ \\
+    \begin{proof}
+        For all $x \in A \cap (B-A)$, 
+        by definition, 
+        we have $(x \in A)\land (x \notin A)$, 
+        so there doesn't exists such $x$. Therefore, $A \cap (B-A)=\emptyset$.
+    \end{proof}
+
+    \item $A \cup (B-A)=A \cup B$ \\
+    \begin{proof}
+        $A \cup (B-A)=
+        \{ x \mid p \lor (q \land \lnot p)\}
+        =\{ x \mid (p \lor q) \land  (p \lor \lnot p)\}
+        =\{ x \mid p \lor q \}
+        =A \cup B$.
+    \end{proof}
+
+    \item $A-B=A \cap \overline{B}$\\
+    \begin{proof}
+        $A-B=
+        \{ x \mid p \land \lnot q \}
+        =A \cap \overline{B}$.
+    \end{proof}
+
+    \item $(A \cap B)\cup (A \cap \overline{B})=A$\\
+    \begin{proof}
+        $(A \cap B)\cup (A \cap \overline{B})
+        =\{ x \mid (p \land q) \lor (p \land \lnot q) \}
+        =\{ x \mid p \land (q \lor \lnot q) \}
+        =\{ x \mid p \}
+        =A$.
+    \end{proof}
+
+    \item $\overline{A \cap B \cap C}=
+    \overline{A}\cup \overline{B}\cup \overline{C}$\\
+    \begin{proof}
+        $\overline{A \cap B \cap C}
+        =\{ x \mid \lnot (p \land q \land r) \}
+        =\{ x \mid \lnot p \lor \lnot q \lor \lnot r \}
+        =\overline{A}\cup \overline{B}\cup \overline{C}$.
+    \end{proof}
+\end{qparts}
+
+\section*{Q2}
+Show the following Cartesian products are not the same.
+\begin{qparts}
+    \item $A \times B$ and $B \times A$, unless $A = B$. \\
+    Let $A=\{ 1 \}$, $B=\{ 2 \}$.
+    Then $A \times B=\{ (1,2) \}\neq \{ (2,1) \}=B \times A$.
+    
+    \item $A \times B \times C$ and $(A \times B )\times C$.
+    Let $A=\{ 1 \}$, $B=\{ 2 \}$, $C=\{ 3 \}$.
+    Then $A \times B \times C=\{ (1,2,3) \}\neq \{ ((1,2),3) \}=(A\times B)\times C$.
+\end{qparts}
+
+\section*{Q3}
+Determine whether the function $f \colon \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$ is onto if
+\begin{qparts}
+    
+    \item $f(m,n)=m+n$ is onto.
+    \item $f(m,n)=m^{2}+n^{2}$ is \textbf{not} onto.
+    \item $f(m,n)=m$ is onto.
+    \item $f(m,n)=\left\vert n \right\vert $ is \textbf{not} onto.
+    \item $f(m,n)=m-n$ is onto.
+\end{qparts}
+
+\section*{Q4}
+If $f$ and $f \circ g$ are onto, does it follow that $g$ is onto? \\
+\textbf{No.}\\
+\begin{proof}
+    Let $f \colon V \to W$. 
+
+    $f$ is onto means
+    $\operatorname{Im}f=f(V)=R$. $f \circ  g$ is onto means $\operatorname{Im} f \mid \operatorname{Im} g=R$. (the vertival bar here means restrict the domain of $f$ within the image of $g$)
+    
+    Once $V \subseteq \operatorname{Im} g $, then we can ensure that $f \circ  g$ is onto. So to construct a counterexample, we just need to set $g$ as 
+    a function such that $V \subseteq \operatorname{Im} g \subset \text{co-domain of } g$.
+\end{proof}
+
+\section*{Q5}
+Let $S$ be a subset of a universal set $U$. The characteristic
+function $f_S$ of $S$ is the function from $U$ to $\{0, 1\}$ such that
+$f_S (x) = 1$ if $x$ belongs to $S $ and $f_S (x) = 0$ if $x$ does not belong
+to $S$. Let $ A$ and $B$ be sets. 
+\\
+Define $\beta \colon \{ \text{true}, \text{false} \} \to \{ 0,1 \}$, which
+maps \textbf{true} to $1$ and \textbf{false} to $0$.
+Let $p$ be ``$x \in A$'', $q$ be ``$x \in B$''.
+\begin{qparts}    
+    \item $f_{A \cap B}(x)=f_{A}(x)\cdot f_{B}(x)$\\
+    \begin{proof}
+
+        LHS, $f_{A\cap B}(x)=1$ iff. $x \in A \cap B \iff x \in A \land x \in B$.
+
+        RHS, $f_{A}(x)\cdot f_{B}(x)=1$ iff. $ f_{A}=1 \land f_{B}=1
+        \iff x \in A \land x \in B$.
+
+        Thus, the 2 expressions are equivalent.
+    \end{proof}
+
+    
+    \item $f_{A \cup B(x)}=f_{A}(x)+f_{B}(x)-f_{A}(x)\cdot f_{B}(x)$\\
+    \begin{proof}
+        Proving $f_{A \cup B(x)}=f_{A}(x)+f_{B}(x)-f_{A}(x)\cdot f_{B}(x)$ 
+        is proving $f_{A \cup B(x)}+f_{A \cap B}(x)=f_{A}(x)+f_{B}(x)$.
+        We prove by cases:
+        \begin{enumerate}[I.]
+            
+            \item $x \notin A \land x \notin B$. LHS=0=RHS.
+            \item $x$ in either set. LHS=1=RHS.
+            \item $x$ in both set. LHS=2=RHS.
+        \end{enumerate}
+        Thus, the equation was verified.
+    \end{proof}
+    
+    \item $f_{\overline{A}}(x)=1-f_{A}(x)$\\
+    \begin{proof}
+        We prove by cases:
+        \begin{enumerate}[I.]
+            
+            \item $x \in A$. LHS=0=RHS.
+            
+            \item $x \notin A$. LHS=1=RHS.
+        \end{enumerate}
+        Thus, the equation was verified.
+    \end{proof}
+\end{qparts}
+
+\section*{Q6}
+Show that the function $ f (x) = ax + b$ from $\mathbb{R}$ to $\mathbb{R}$ is
+invertible, where $a$ and $b$ are constants, with $a\neq 0$, and find
+the inverse of $f$ .
+\\
+\begin{solution}
+
+    First show $f$ is injection. $\forall m,n \in \mathbb{R}$,
+    $f(m)=f(n) \implies  am+b=an+b \implies  m=n$.
+
+    Then show  $f$ is surjection. $\forall y_0 \in \mathbb{R}$, $
+    \exists x_0=\frac{1}{a}(y_0-b)$ s.t. $f(x_0)=y_0$.
+    
+    So, $f$ is bijection, and thus, $f$ is invertible. $f^{-1}=\frac{1}{a}(x-b)$.
+\end{solution}
+
+\section*{Q7}
+Prove or disprove each of these statements about the ﬂoor and
+ceiling functions.
+\begin{qparts}
+    
+    \item $\forall x \in \mathbb{R}, \left\lceil \left\lfloor x \right\rfloor \right\rceil 
+    =\left\lfloor x \right\rfloor $\\
+    \begin{proof}
+        Write $x=n+\epsilon, n \in \mathbb{Z}, \epsilon \in \left[ 0,1 \right)$.
+        $\left\lceil \left\lfloor x \right\rfloor \right\rceil 
+        =\left\lceil n \right\rceil 
+        =n
+        =\left\lfloor x \right\rfloor$.
+    \end{proof}
+    
+    \item $\forall x \in \mathbb{R}, \left\lfloor 2x \right\rfloor =2\left\lfloor x \right\rfloor$\\
+    \textbf{False}. $x=2.5$ is an counterexample.
+    
+    \item $\forall x,y \in \mathbb{R}, \left\lceil xy \right\rceil =\left\lceil x  \right\rceil \left\lceil y \right\rceil $\\
+    \textbf{False}. $x=y=9.9$ is an counterexample.
+    
+    \item $\forall x \in \mathbb{R}, \left\lceil \frac{x}{2} \right\rceil =\left\lfloor \frac{x+1}{2} \right\rfloor$\\
+    \begin{proof}
+        
+    \end{proof}
+
+\end{qparts}
+
+\section*{Q8}
+\section*{Q9}
+\section*{Q10}
+\section*{Q11}
+\section*{Q12}
+\section*{Q13}
+\section*{Q14}
+
+
+\end{document}
