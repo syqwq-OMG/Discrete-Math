@@ -14,3 +14,6 @@ discrete math and its applications
 - **Mar. 9th 2025**
     learn proof methods and some basics about sets.
     modify the template.tex to beautify the pdf file rendered.
+
+- **Mar. 21th 2025**
+    learn functions, sets, matrices, etc.

@@ -211,17 +211,108 @@ ceiling functions.
     \textbf{False}. $x=y=9.9$ is an counterexample.
     
     \item $\forall x \in \mathbb{R}, \left\lceil \frac{x}{2} \right\rceil =\left\lfloor \frac{x+1}{2} \right\rfloor$\\
-    \begin{proof}
-        
-    \end{proof}
-
+    \textbf{False}. $x=6.2$ is an counterexample.
 \end{qparts}
 
 \section*{Q8}
+Please formulate the following problem as a formal
+mathematical problem via using indicator functions:
+
+Input:
+Universal set $U=\{ u_1,u_2, \ldots ,u_n \}$. Subsets $S_1,
+S_2, \ldots ,S_m \subseteq U$.
+
+Goal:
+Find $k$ subsets that maximizes their total coverage, i.e. ,
+set $\bigcup_{i \in k}S_i$ contains the most elements of $U$.
+\\
+\begin{solution}
+    Let $\lambda \subseteq \{ 1,2, \ldots ,n \}$,
+    $\delta_i=\begin{cases}
+        0,&i \notin \lambda\\
+        1,&i \in \lambda
+    \end{cases}$,
+    $S=\bigcup_{i \in \lambda} S_i$,
+    $I_S(u_i)=
+    \begin{cases}
+        0,&u_i\notin S\\
+        1,&u_i \in S
+    \end{cases}$
+
+    Objective: $\max \sum_{i=1}^{n}I_S(u_i)$
+    s.t. $\sum_{i=1}^{n}\delta_i=9$.
+
+\end{solution}
+
 \section*{Q9}
+Determine whether each of these sets is countable or
+uncountable. For those that are countably inﬁnite, exhibit a
+one-to-one correspondence between the set of positive integers
+and that set.
+\begin{qparts}
+    
+    \item all bit strings not containing the bit 0.\\
+    \textbf{Countably inﬁnite}. $f \colon \text{bit strings} \to \mathbb{Z}^{+}, str \mapsto \text{length of }str$.
+    
+    \item he integers that are multiples of 7.\\
+    \textbf{Countably inﬁnite}. Let $f \colon \mathbb{Z} 
+    \to \mathbb{Z}, x \mapsto \frac{x}{7}$,
+    $g \colon \mathbb{Z} \to \mathbb{Z}^{+}, x \mapsto 
+    \begin{cases}
+        2x,&x\ge 0\\
+        2\left\vert x  \right\vert -1,&x<0
+    \end{cases}$.
+    And $g \circ f$ is what we want.
+    
+    \item the irrational numbers between 0 and 1.\\
+    \textbf{Uncountable}.
+    
+    \item the real numbers between 0 and $\frac{1}{2}$ .\\
+    \textbf{Uncountable}.
+
+\end{qparts}
+
 \section*{Q10}
+Give an example of two uncountable sets $A$ and $B$ such that
+$A \cap B$ is
+\begin{qparts}
+    
+    \item finite. Let $A=(0,1), B=[0,1]$.
+    \item countably inﬁnite. 
+    Let $A=\mathbb{Z}\cup (0,1), B=\mathbb{Z} \cup (1,2)$.
+    
+    \item uncountable.
+    Let $A=B=(0,1)$.
+
+\end{qparts}
+
 \section*{Q11}
+Explain why the set $A$ is countable 
+if and only if $\left\vert A \right\vert \le \left\vert \mathbb{Z}^{+} \right\vert $.\\
+\begin{solution}
+
+    If $A$ is countable, it is trivial that
+    there exists an injection from $A$ to $\mathbb{Z}^{+}$,
+    so $\left\vert A \right\vert \le \left\vert \mathbb{Z}^{+} \right\vert $.
+
+    Then for the other case $\left\vert A \right\vert \le \left\vert 
+        \mathbb{Z}^{+}
+    \right\vert $. If $\left\vert A \right\vert <
+    \left\vert \mathbb{Z}^{+} \right\vert=\aleph_0 $, then
+    $A$ is finite, so it is countable. If $\left\vert A 
+    \right\vert =\left\vert \mathbb{Z}^{+} \right\vert \iff
+    (\left\vert A \right\vert \le \left\vert \mathbb{Z}^{+} \right\vert 
+    )\land (\left\vert A \right\vert \ge \left\vert \mathbb{Z}^{+} \right\vert )$, and each term ensure a injection. So according to Schröder–Bernstein theorem, there exist a bijection from $A$ to $\mathbb{Z}^{+}$, and thus 
+    $A$ is countable.
+\end{solution}
+
 \section*{Q12}
+Show that if $A$ and $B$ are sets, $A$ is uncountable, and $A \subseteq B$,
+then $B$ is uncountable.\\
+\begin{solution}
+    
+\end{solution}
+
 \section*{Q13}
 \section*{Q14}
 
