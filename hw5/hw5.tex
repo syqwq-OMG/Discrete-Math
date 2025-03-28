@@ -1,0 +1,237 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
+\usepackage{setspace} % set space between lines
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{5} % Number of Homework
+\def\Session{Spring 2025}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{Discrete Math--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
+\newenvironment{solution}{{\bf Solution}:}{\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+% \onehalfspacing
+% \doublespacing
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+How many 6-element RNA sequences\\
+\begin{solution}\\
+    RNA sequences consists of A,U,C,G.
+    \begin{qparts}
+        \item do not contain U?\\
+        $\text{Ans}=3^{6}=729$.
+        
+        \item end with GU?\\
+        $\text{Ans}=4^{4}=256$.
+
+        \item start with C ?\\
+        $\text{Ans}=4^{5}=1024$.
+
+        \item contain only A or U?\\
+        $\text{Ans}=2^{6}=64$.
+    \end{qparts}
+\end{solution}
+
+\section*{Q2}
+Find the value of each of these quantities.
+\begin{qparts}
+    
+    \item $P(6,4)=6\times 5\times 4\times 3=360$.\\
+    $P(7,5)=7\times 6\times 5\times 4\times 3=2520$.
+    
+    \item $C(6,4)=\frac{P(6,4)}{4!}=15$.\\
+    $C(7,5)=\frac{P(7,5)}{5!}=21$.
+    
+    \item $C(6,2)=C(6,4)=15$.\\
+    $C(7,2)=C(7,5)=21$.
+\end{qparts}
+
+\section*{Q3}
+How many permutations of the letters ABCDEFG contain
+\begin{qparts}
+    
+    \item string BCD?\\
+    $\text{Ans}=P(5,5)=120$.
+    \item strings BA and GF?\\
+    $\text{Ans}=P(5,5)=120$.
+    \item strings ABC and CDE?\\
+    $\text{Ans}=P(3,3)=6$.
+    \item strings CBA and BED?\\
+    $\text{Ans}=0$.
+\end{qparts}
+
+\section*{Q4}
+A multiple-choice test contains 10 questions. There are four
+possible answers for each question.
+\begin{qparts}
+    
+    \item In how many ways can a student answer the questions on the test if the student answers every question?\\
+    $\text{Ans}=4^{10}=1048576$.
+
+    \item In how many ways can a student answer the questions on the test if the student can leave answers blank?\\
+    $\text{Ans}=5^{10}=9765625$.
+
+
+\end{qparts}
+
+\section*{Q5}
+How many positive integers less than 1000
+\begin{qparts}
+    
+    \item have distinct digits\\
+    Considering enumerate the digits by cases.
+    \begin{enumerate}[I. ]
+        \item integers within 10. In total, $\text{Ans}_{10}=9$.
+        \item integers from 10 to 99. In total, $\text{Ans}_{100}=9\times 9=81$.
+        \item integers from $100$ to $999$. In total, $\text{Ans}_{1000}=
+        9\times 9\times 8=648$.
+    \end{enumerate}
+    Thus, $\text{Ans}=\text{Ans}_{10}+\text{Ans}_{100}+\text{Ans}_{1000}=738$.
+
+    \item have distinct digits and are even\\
+    It's believed that the odd cases have the same capacity with the even ones. Thus, $\text{Ans}=738 / 2=369$.
+\end{qparts}
+
+\section*{Q6}
+How many bit strings of length 10 contain
+\begin{qparts}
+    
+    \item exactly four 1s?\\
+    $\text{Ans}=\frac{P(10, 10)}{4!\cdot 6!}=210$.
+
+    \item at most four 1s?\\
+    $\text{Ans}=\sum_{i=0}^4 \frac{P(10 , 10)}{i! \cdot (10-i)!}=386$.
+
+    \item at least four 1s?\\
+    $\text{Ans}=2^{10}-386+210=848$.
+
+    \item an equal number of 0s and 1s?\\
+    $\text{Ans}=\frac{P(10, 10)}{5!\cdot 5!}=252$.
+\end{qparts}
+
+\section*{Q7}
+Find the number of elements in $A_1 \cup  A_2 \cup  A_3$ if there are 100
+elements in each set and if
+\begin{qparts}
+    
+    \item the sets are pairwise disjoint\\
+    Pairwise disjoint means $A_i\neq A_j, \forall i\neq j \in \{ 1,2,3 \}$. Thus, $\left\vert A_1 \cup A_2 \cup A_3 \right\vert =300$.
+
+    \item there are 50 common elements in each pair of sets and no elements in all three sets\\
+    According to Inclusion-Exclusion Principle, \\$
+    \left\vert A_1 \cup A_2 \cup A_3 \right\vert=
+    \sum\left\vert A_{i } \right\vert-\sum\left\vert A_{i} \cap A_{j } \right\vert+\left\vert A_1 \cap A_2 \cap A_3 \right\vert=300-50\cdot 3+0=150$
+
+    \item there are 50 common elements in each pair of sets and 25 elements in all three sets.\\
+    According to Inclusion-Exclusion Principle, \\$
+    \left\vert A_1 \cup A_2 \cup A_3 \right\vert=
+    \sum\left\vert A_{i } \right\vert-\sum\left\vert A_{i} \cap A_{j } \right\vert+\left\vert A_1 \cap A_2 \cap A_3 \right\vert=300-50\cdot 3+25=170$
+
+    \item the sets are equal\\
+    $\left\vert A_1 \cup A_2 \cup A_3 \right\vert=\left\vert A_1 \right\vert=100  $.
+\end{qparts}
+
+\section*{Q8}
+How many derangements are there of a set with seven elements?\\
+\begin{solution}
+    Let $P_{i }$ be $i$ is at its place, then our objective is to solve $\left\vert \bigcap_{i=1}^{7}\overline{P_{i}} \right\vert 
+    =\left\vert \overline{\bigcup_{i=1}^{7}P_{i} } \right\vert $.
+    \begin{align*}
+        \left\vert \bigcup_{i=1}^{7}P_{i} \right\vert&=\sum\left\vert P_{i } \right\vert -\sum\left\vert P_{i}\cap P_{j} \right\vert +\sum \left\vert P_{i }\cap P_{j } \cap P_{k } \right\vert
+        + \cdots +\sum_{\left\vert \lambda  \right\vert=\# }(-1)^{\#} \cdot \left\vert \bigcap_{i \in \lambda}P_{i } \right\vert + \cdots -
+        \left\vert \bigcap_{i=1 }^{7}P_{i} \right\vert \\
+        &=
+    \end{align*}
+\end{solution}
+
+\section*{Q9}
+How many positive integers less than 200 are
+\begin{qparts}
+    
+    \item either odd or the square of an integer;
+    \item second or higher powers of integers?
+    \item  either primes or second or higher powers of integers?
+    \item not divisible by the square of an integer greater than 1?
+\end{qparts}
+
+\section*{Q10}
+How many ways are there to choose eight coins from a piggy bank containing 100 identical pennies and 80 identical nickels?
+
+\section*{Q11}
+How many solutions are there to the equation $x_1+x_2+x_3+x_4=17$
+\begin{qparts}
+    
+    \item  if $x_1,x_2,x_3$ and $x_4$ are nonnegative integers?
+
+    \item  if $x_1,x_2,x_3$ and $x_4$ are positive integers?
+
+    \item  if $x_1\ge 2,x_2\ge 3,x_3\ge 4$ and $x_4$ are positive integers?
+\end{qparts}
+
+\section*{Q12}
+How many solutions are there to the equation $x_1+x_2+x_3+x_4\le 17$
+\begin{qparts}
+    \item  if $x_1,x_2,x_3$ and $x_4$ are nonnegative integers?
+
+    \item  if $x_1,x_2,x_3$ and $x_4$ are positive integers?
+\end{qparts}
+
+\section*{Q13}
+Find the next larger permutation in lexicographic order after each of these permutations.
+\begin{qparts}
+    
+    \item  1432;
+
+    \item  54123;
+
+    \item  12453;
+
+    \item  31528764.
+\end{qparts}
+
+\section*{Q14}
+Find the next larger 5-combination of the set $\{ 1,2,3,4,5,6,7 \}$ after each of these 4-combinations
+\begin{qparts}
+    
+    \item  $\{ 1,2,4,5,7 \}$
+
+    \item  $\{ 1,4,5,6,7 \}$
+
+\end{qparts}
+
+\section*{Q15}
+Write the pseudo-code for generating the next permutation in a reverse lexicographic order.
+
+\section*{Q16}
+Given set $\{ n,n-1, \ldots ,1 \}$, write the pseudo-code for generating the next $r$-combination in a reverse lexicographic order.
+
+\section*{Q17}
+Show that among any group of ﬁve (not necessarily consecutive) integers, there are two with the same remainder when divided by 4.
+
+\section*{Q18}
+Let $n$ be a positive integer. Show that in any set of $n$ consecutive integers there is exactly one divisible by $n$.
+
+\section*{Q19}
+Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
+
+\end{document}
