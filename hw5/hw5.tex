@@ -4,6 +4,8 @@
 \usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
 \usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
 \usepackage{setspace} % set space between lines
+\usepackage{algorithm}
+\usepackage{algpseudocodex}
 
 \def\Name{Yuquan Sun}  % Your name
 \def\SID{10234900421}  % Your student ID number
@@ -20,35 +22,35 @@
 \newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
 \def\endproofmark{$\Box$}
 \newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
-\newenvironment{solution}{{\bf Solution}:}{\smallskip}
+\newenvironment{solution}{{\\\bf Solution}:}{\smallskip}
 
 \textheight=9in
 \textwidth=6.5in
 \topmargin=-.75in
 \oddsidemargin=0.25in
 \evensidemargin=0.25in
-% \onehalfspacing
+\onehalfspacing
 % \doublespacing
 
 \begin{document}
 \maketitle
 
 \section*{Q1}
-How many 6-element RNA sequences\\
+How many 6-element RNA sequences
 \begin{solution}\\
     RNA sequences consists of A,U,C,G.
     \begin{qparts}
-        \item do not contain U?\\
-        $\text{Ans}=3^{6}=729$.
+        \item do not contain U?
+        $\textbf{Ans}=3^{6}=729$.
         
-        \item end with GU?\\
-        $\text{Ans}=4^{4}=256$.
+        \item end with GU?
+        $\textbf{Ans}=4^{4}=256$.
 
-        \item start with C ?\\
-        $\text{Ans}=4^{5}=1024$.
+        \item start with C ?
+        $\textbf{Ans}=4^{5}=1024$.
 
-        \item contain only A or U?\\
-        $\text{Ans}=2^{6}=64$.
+        \item contain only A or U?
+        $\textbf{Ans}=2^{6}=64$.
     \end{qparts}
 \end{solution}
 
@@ -70,14 +72,14 @@ Find the value of each of these quantities.
 How many permutations of the letters ABCDEFG contain
 \begin{qparts}
     
-    \item string BCD?\\
-    $\text{Ans}=P(5,5)=120$.
-    \item strings BA and GF?\\
-    $\text{Ans}=P(5,5)=120$.
-    \item strings ABC and CDE?\\
-    $\text{Ans}=P(3,3)=6$.
-    \item strings CBA and BED?\\
-    $\text{Ans}=0$.
+    \item string BCD?
+    $\textbf{Ans}=P(5,5)=120$.
+    \item strings BA and GF?
+    $\textbf{Ans}=P(5,5)=120$.
+    \item strings ABC and CDE?
+    $\textbf{Ans}=P(3,3)=6$.
+    \item strings CBA and BED?
+    $\textbf{Ans}=0$.
 \end{qparts}
 
 \section*{Q4}
@@ -86,10 +88,10 @@ possible answers for each question.
 \begin{qparts}
     
     \item In how many ways can a student answer the questions on the test if the student answers every question?\\
-    $\text{Ans}=4^{10}=1048576$.
+    $\textbf{Ans}=4^{10}=1048576$.
 
     \item In how many ways can a student answer the questions on the test if the student can leave answers blank?\\
-    $\text{Ans}=5^{10}=9765625$.
+    $\textbf{Ans}=5^{10}=9765625$.
 
 
 \end{qparts}
@@ -106,27 +108,27 @@ How many positive integers less than 1000
         \item integers from $100$ to $999$. In total, $\text{Ans}_{1000}=
         9\times 9\times 8=648$.
     \end{enumerate}
-    Thus, $\text{Ans}=\text{Ans}_{10}+\text{Ans}_{100}+\text{Ans}_{1000}=738$.
+    Thus, $\textbf{Ans}=\text{Ans}_{10}+\text{Ans}_{100}+\text{Ans}_{1000}=738$.
 
     \item have distinct digits and are even\\
-    It's believed that the odd cases have the same capacity with the even ones. Thus, $\text{Ans}=738 / 2=369$.
+    It's believed that the odd cases have the same capacity with the even ones. Thus, $\textbf{Ans}=738 / 2=369$.
 \end{qparts}
 
 \section*{Q6}
 How many bit strings of length 10 contain
 \begin{qparts}
     
-    \item exactly four 1s?\\
-    $\text{Ans}=\frac{P(10, 10)}{4!\cdot 6!}=210$.
+    \item exactly four 1s?
+    $\textbf{Ans}=\frac{P(10, 10)}{4!\cdot 6!}=210$.
 
-    \item at most four 1s?\\
-    $\text{Ans}=\sum_{i=0}^4 \frac{P(10 , 10)}{i! \cdot (10-i)!}=386$.
+    \item at most four 1s?
+    $\textbf{Ans}=\sum_{i=0}^4 \frac{P(10 , 10)}{i! \cdot (10-i)!}=386$.
 
-    \item at least four 1s?\\
-    $\text{Ans}=2^{10}-386+210=848$.
+    \item at least four 1s?
+    $\textbf{Ans}=2^{10}-386+210=848$.
 
-    \item an equal number of 0s and 1s?\\
-    $\text{Ans}=\frac{P(10, 10)}{5!\cdot 5!}=252$.
+    \item an equal number of 0s and 1s?
+    $\textbf{Ans}=\frac{P(10, 10)}{5!\cdot 5!}=252$.
 \end{qparts}
 
 \section*{Q7}
@@ -152,86 +154,257 @@ elements in each set and if
 \end{qparts}
 
 \section*{Q8}
-How many derangements are there of a set with seven elements?\\
+How many derangements are there of a set with seven elements?
 \begin{solution}
-    Let $P_{i }$ be $i$ is at its place, then our objective is to solve $\left\vert \bigcap_{i=1}^{7}\overline{P_{i}} \right\vert 
+    Let $P_{i }$ be ``$i$ is at its place'', then our objective is to solve $\left\vert \bigcap_{i=1}^{7}\overline{P_{i}} \right\vert 
     =\left\vert \overline{\bigcup_{i=1}^{7}P_{i} } \right\vert $.
     \begin{align*}
-        \left\vert \bigcup_{i=1}^{7}P_{i} \right\vert&=\sum\left\vert P_{i } \right\vert -\sum\left\vert P_{i}\cap P_{j} \right\vert +\sum \left\vert P_{i }\cap P_{j } \cap P_{k } \right\vert
-        + \cdots +\sum_{\left\vert \lambda  \right\vert=\# }(-1)^{\#} \cdot \left\vert \bigcap_{i \in \lambda}P_{i } \right\vert + \cdots -
+        \left\vert \bigcup_{i=1}^{7}P_{i} \right\vert
+        &=\sum\left\vert P_{i } \right\vert -\sum\left\vert P_{i}\cap P_{j} \right\vert +\sum \left\vert P_{i }\cap P_{j } \cap P_{k } \right\vert
+        + \cdots +\sum_{\left\vert \lambda  \right\vert=\# }(-1)^{1+\#} \cdot \left\vert \bigcap_{i \in \lambda}P_{i } \right\vert + \cdots +
         \left\vert \bigcap_{i=1 }^{7}P_{i} \right\vert \\
-        &=
+        &=\binom{7}{1}\cdot 6!-\binom{7}{2}\cdot 5!+\binom{7}{3}\cdot 4!
+            + \cdots +\binom{7}{7}\cdot 0!\\
+        &=\frac{7!}{1!\cdot 6!}\cdot 6!-\frac{7!}{2!\cdot 5!}\cdot 5!
+            + \cdots +\frac{7!}{7!\cdot 0!}\cdot 0!\\
+        &=7!\cdot (\frac{1}{1!}-\frac{1}{2!}+\frac{1}{3!}+ \cdots +\frac{1}{7!})\\
+        &=3186
     \end{align*}
+    Therefore, $\left\vert \overline{\bigcup_{i=1}^{7}P_{i}} \right\vert 
+    =P(7,7)-\left\vert \bigcup_{i=1}^{7}P_{i} \right\vert=1854$.
 \end{solution}
 
 \section*{Q9}
 How many positive integers less than 200 are
 \begin{qparts}
     
-    \item either odd or the square of an integer;
-    \item second or higher powers of integers?
-    \item  either primes or second or higher powers of integers?
-    \item not divisible by the square of an integer greater than 1?
+    \item either odd or the square of an integer;\\
+    Let $A$ be the odd positive integers within 200, and 
+    $B$ be the square numbers within 200.
+    Then, we have $\left\vert A  \right\vert =100$, 
+    $\left\vert B \right\vert = 14$, $\left\vert A \cap B \right\vert=7 $. Therefore, 
+    \begin{equation*}
+        \textbf{Ans}=\left\vert A \cup B  \right\vert
+            = \left\vert  A\right\vert +\left\vert B  \right\vert -\left\vert A \cap B \right\vert=107
+    \end{equation*}
+
+
+    \item second or higher powers of integers?\\
+    Let $P_{i}=\{ x\colon  \exists t \in [2,200) \cap \mathbb{Z} \text{ s.t. } x=t^{i} \}$.  
+
+    Since, $\left\lfloor \log_2 199 \right\rfloor=7$, we conclude that 
+    $\forall i \ge 8, P_{i }=\emptyset$. And, obviously we get
+    \begin{enumerate}[i. ]
+        
+        \item $\left\vert P_{i } \right\vert =\left\lfloor 199^{1 / i} \right\rfloor-1$. 
+        \item $d \mid n \implies P_{n} \subseteq P_{d}$
+        \item $\operatorname{gcd}(i,j)=1 \implies P_{i }\cap P_{j }=\emptyset$
+    \end{enumerate}
+    By calculation, we have $(P_2,P_3,P_4,P_5,P_6,P_7)=(13,4,2,1,1,1)$. 
+    Therefore, $\left\vert \bigcup_{i=2}^{7}P_{i } \right\vert =\left\vert P_{2} \cup P_{3} \cup P_{5} \cup P_7 \right\vert =13+4+1+1=19$.
+
+    But, for the answer, we should take 1 into account. Thus, $\textbf{Ans}=20$.
+
+
+    \item  either primes or second or higher powers of integers?\\
+    Let $A$ be set of all primes within 200 
+    and $B$ be set of second or higher powers of integers within 200.
+    Since, all primes cannot be a power of other integer, thus $A \cap B=\emptyset$.
+
+    Therefore, $\textbf{Ans}=\left\vert A \cup B  \right\vert =
+    \left\vert A \right\vert +\left\vert B \right\vert -\left\vert A \cap B  \right\vert =46+20=66$.
+
+
+    \item not divisible by the square of an integer greater than 1?\\
+    Square of integers within 200 are listed as $$S=\{ 4,9,16, 25, 36 ,49 ,
+    64 , 81, 100, 121 , 144 , 169 , 196 \}$$
+    Let $P_{i }=\{ x\colon i \mid x, x \in [1,199]\cap \mathbb{Z} \}$,
+    and $S'=\{ 4,9,25,49 ,121 ,169 \}$. 
+    Then, we have 
+    \begin{enumerate}[i. ]
+        
+        \item $\left\vert P_{i } \right\vert =\left\lfloor 199 / i \right\rfloor$
+        \item $d \mid n \implies P_{n} \subseteq P_{d}$
+        \item $\operatorname{gcd}(i,j)=1\implies P_{i }\cap P_{j }=\emptyset$
+    \end{enumerate}
+    Then,
+    \begin{align*}
+        \textbf{Ans}&=199-\left\vert \bigcup_{i \in  S}P_{i}  \right\vert 
+                =199-\left\vert \bigcup_{i \in  S'} P_{i } \right\vert \\
+                &=199-\sum_{i \in S'}\left\vert P_{i } \right\vert 
+                =199-\sum_{i \in S'}\left\lfloor \frac{199}{i} \right\rfloor\\
+                &=199-49-22-7-4-1-1\\
+                &=115
+    \end{align*}
 \end{qparts}
 
 \section*{Q10}
 How many ways are there to choose eight coins from a piggy bank containing 100 identical pennies and 80 identical nickels?
+\begin{solution}
+    Since the pennies and nickels are identical, the answer should 
+    be 9, which correspond to pairs: $(8,0),(7,1), \ldots ,(1,7),(0,8)$.
+\end{solution}
 
 \section*{Q11}
-How many solutions are there to the equation $x_1+x_2+x_3+x_4=17$
-\begin{qparts}
+How many solutions are there to the equation
+\begin{equation}
+  x_1+x_2+x_3+x_4=17\label{eq:1}
+\end{equation}
+\begin{solution}
+    For equation 
+    $$
+    \sum_{i=1}^{n}x_{i }=m
+    $$ where $x_{i }\in \mathbb{Z}^{+}$, the cardinality of solution set 
+    is $\binom{m-1}{n-1}$.
+    \begin{qparts}
     
-    \item  if $x_1,x_2,x_3$ and $x_4$ are nonnegative integers?
+        \item  if $x_1,x_2,x_3$ and $x_4$ are nonnegative integers?\\
+        Rewrite \eqref{eq:1} as $(x_1+1)+ (x_2+1)+ (x_3+1)+ (x_4+1)=21$, then 
+        $\textbf{Ans}=\binom{20}{3}=1140$.
+    
+        \item  if $x_1,x_2,x_3$ and $x_4$ are positive integers?\\
+        It is trivial that $\textbf{Ans}=\binom{16}{3}=560$.
+    
+        \item  if $x_1\ge 2,x_2\ge 3,x_3\ge 4$ and $x_4$ are positive integers?\\
+        Rewrite \eqref{eq:1} as $(x_1-1)+ (x_2-2)+ (x_3-3)+ x_4=11$, then
+        $\textbf{Ans}=\binom{10}{3}=120$.
+    \end{qparts}
+\end{solution}
 
-    \item  if $x_1,x_2,x_3$ and $x_4$ are positive integers?
-
-    \item  if $x_1\ge 2,x_2\ge 3,x_3\ge 4$ and $x_4$ are positive integers?
-\end{qparts}
 
 \section*{Q12}
-How many solutions are there to the equation $x_1+x_2+x_3+x_4\le 17$
-\begin{qparts}
-    \item  if $x_1,x_2,x_3$ and $x_4$ are nonnegative integers?
+How many solutions are there to the equation 
+\begin{equation}
+  x_1+x_2+x_3+x_4\le 17 \label{eq:2}
+\end{equation}
+\begin{solution}
+    For inequation 
+    $$
+    \sum_{i=1}^{n}x_{i }\le m
+    $$ where $x_{i }\in \mathbb{Z}^{+}$, the cardinality of solution set 
+    is $\sum_{i= n}^{m}\binom{i-1}{n-1}$.
 
-    \item  if $x_1,x_2,x_3$ and $x_4$ are positive integers?
-\end{qparts}
+    \begin{qparts}
+        \item  if $x_1,x_2,x_3$ and $x_4$ are nonnegative integers?\\
+        Rewrite \eqref{eq:2} as $(x_1+1)+ (x_2+1)+ (x_3+1)+ (x_4+1)=21$, then 
+        $\textbf{Ans}=\sum_{i=4}^{21}\binom{i-1}{3}=5985$.
+        
+        \item  if $x_1,x_2,x_3$ and $x_4$ are positive integers?\\
+        It is trivial that $\textbf{Ans}=\sum_{i=4}^{17}\binom{i-1}{3}=2380$.
+
+    \end{qparts}
+\end{solution}
+
 
 \section*{Q13}
 Find the next larger permutation in lexicographic order after each of these permutations.
 \begin{qparts}
     
-    \item  1432;
+    \item  1432; $\textbf{Ans}=2134$.
 
-    \item  54123;
+    \item  54123; $\textbf{Ans}=54213$.
 
-    \item  12453;
+    \item  12453; $\textbf{Ans}=12534$.
 
-    \item  31528764.
+    \item  31528764. $\textbf{Ans}=31542678$.
 \end{qparts}
 
 \section*{Q14}
-Find the next larger 5-combination of the set $\{ 1,2,3,4,5,6,7 \}$ after each of these 4-combinations
+Find the next larger 5-combination of the set $\{ 1,2,3,4,5,6,7 \}$ after each of these 5-combinations
 \begin{qparts}
     
-    \item  $\{ 1,2,4,5,7 \}$
+    \item  $\{ 1,2,4,5,7 \}$; $\textbf{Ans}=\{ 1,2, 4,6,7\}$.
 
-    \item  $\{ 1,4,5,6,7 \}$
+    \item  $\{ 1,4,5,6,7 \}$; $\textbf{Ans}=\{ 2,3,4,5,6 \}$.
 
 \end{qparts}
 
 \section*{Q15}
 Write the pseudo-code for generating the next permutation in a reverse lexicographic order.
+\begin{solution}
+\begin{algorithm}
+    \caption{generate the next permutation in a reverse lexicographic order}
+    \begin{algorithmic}
+        \Procedure{next permutation}{$a_1a_2\cdots a_n$
+        :permutation of $\{ 1,2, \ldots ,n \}$ not equal to\\
+        $1 \; 2 \; \cdots \; n-1 \; n$}
+        \State $j \gets n-1$
+        \While{$a_{j}<a_{j+1}$}\Comment{find the max suffix that is well ordered}
+            \State $j\gets j-1$
+        \EndWhile
+        \State $k\gets n$
+        \While{$a_{k}>a_{j}$}\Comment{find the first number that is smaller than
+        $a_{j}$}
+            \State $k\gets k-1$
+        \EndWhile
+        \State \textsc{interchange}$(a_{j},a_{k})$
+        \State $r\gets n$
+        \State $l \gets j+1$
+        \While{$r>l$}\Comment{sort the rest part in descending order}
+            \State \textsc{interchange}$(a_{l},a_{r})$
+            \State $l\gets l+1$
+            \State $r\gets r-1$
+        \EndWhile
+        \Comment{$a_1a_2\cdots a_{n}$ is now the next permutation}
+    \EndProcedure
+    \end{algorithmic}
+\end{algorithm}
+\end{solution}
 
 \section*{Q16}
 Given set $\{ n,n-1, \ldots ,1 \}$, write the pseudo-code for generating the next $r$-combination in a reverse lexicographic order.
+\begin{solution}
+    \begin{algorithm}
+        \caption{generate the next $r$-combination in a reverse
+        lexicographic order}
+        \begin{algorithmic}
+        \Procedure{next $r$-combination}{$a_1a_2\cdots a_r$
+        :proper subset of $\{ 1,2, \ldots ,n \}$ not equal to\\
+        $\{ r,r-1, \ldots 2,1\}$ with $a_1>a_2>\cdots>a_r$}
+            \State $i\gets r$\Comment{iterate from the last digit}
+            \While{$a_{i}=r-i+1$}
+            \Comment{find the first digit that can be modified}
+                \State $i\gets i-1$
+            \EndWhile
+            \State $a_{i}\gets a_{i}-1$
+            \For{$j\gets i+1$ \textbf{to} $r$}
+            \Comment{follow closely to the digit}
+            \State $a_{j}\gets a_{i}-j+i$
+            \State $j\gets j+1$
+            \Comment{$a_1,a_2, \ldots ,a_{r}$ s now the next combination}
+            \EndFor
+        \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+\end{solution}
 
 \section*{Q17}
 Show that among any group of ﬁve (not necessarily consecutive) integers, there are two with the same remainder when divided by 4.
+\begin{solution}
+    5 numbers have 5 remainders, but the range of remainders is 
+    $\{ 0,1,2,3 \}$, and according to Pigeonhole Principle, there 
+    must be 2 remainders be the same.
+\end{solution}
 
 \section*{Q18}
 Let $n$ be a positive integer. Show that in any set of $n$ consecutive integers there is exactly one divisible by $n$.
+\begin{solution}
+    It's obvious that $n$ consecutive integers have $n$ different
+    remainders when divided by $n$, but, the remainders generated 
+    by dividing $n$ has exactly $n$ elements. Therefore, there exists
+    exactly one 0 among the remainders, 
+    which means it is divisible by $n$.
+\end{solution}
 
 \section*{Q19}
 Show that whenever 25 girls and 25 boys are seated around a circular table there is always a person both of whose neighbors are boys.
-
+\begin{solution}
+    Denote the 50 positions as $p_1,p_2, \ldots p_{50}$, and then 
+    divide the group into two sub-groups:$\{ a_1,a_3, \ldots ,a_{49} \}$
+    and $\{ a_2,a_4, \ldots ,a_{50} \}$. According to Pigeonhole Principle,
+    either the odd or the even group will have at least
+    $\left\lceil \frac{25}{2} \right\rceil =13$ boys. And this ensures 
+    that at least 2 boys are adjacent to each other in this sub-group, 
+    which means they are neighbors to a person in the whole circle.
+\end{solution}
 \end{document}

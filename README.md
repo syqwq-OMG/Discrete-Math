@@ -17,3 +17,6 @@ discrete math and its applications
 
 - **Mar. 21th 2025**
     learn functions, sets, matrices, etc.
+
+- **Mar. 28th 2025**
+    learn combination mathematics
