@@ -6,6 +6,18 @@
 \usepackage{setspace} % set space between lines
 \usepackage{algorithm}
 \usepackage{algpseudocodex}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
 
 \def\Name{Yuquan Sun}  % Your name
 \def\SID{10234900421}  % Your student ID number
@@ -23,6 +35,28 @@
 \def\endproofmark{$\Box$}
 \newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
 \newenvironment{solution}{{\\\bf Solution}:}{\smallskip}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+morekeywords={self},              % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false
+}}
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+\lstset{ literate={-}{-}1 }% 确保减号正常解析 
 
 \textheight=9in
 \textwidth=6.5in

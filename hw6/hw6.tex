@@ -1,0 +1,249 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
+\usepackage{setspace} % set space between lines
+\usepackage{algorithm}
+\usepackage{algpseudocodex}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{6} % Number of Homework
+\def\Session{Spring 2025}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{Discrete Math--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
+\newenvironment{solution}{{\\\bf Solution}:}{\smallskip}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+morekeywords={self},              % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false
+}}
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+\lstset{ literate={-}{-}1 }% 确保减号正常解析 
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+% \onehalfspacing
+% \doublespacing
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+Construct a sequence of 16 positive integers that has no
+increasing or decreasing subsequence of ﬁve terms.
+\begin{solution}
+    4,3,2,1,8,7,6,5,12,11,10,9,16,15,14,13.
+\end{solution}
+
+\section*{Q2}
+What is the coeﬃcients of $x^{8}$,$x^{9}$ and $x^{10}$ in $(2-x)^{19}$?
+\begin{solution}
+
+\begin{align*}
+(2-x)^{19} = \cdots 
+    &+ \binom{19}{8} \cdot 2^{11}\cdot (-1)^{8} \cdot  x^{8}\\
+    &+ \binom{19}{9}\cdot 2^{10} \cdot (-1)^{9}\cdot x^{9}\\
+    &+ \binom{19}{10}\cdot 2^{9}\cdot (-1)^{10}\cdot x^{10}\\
+    &+ \cdots 
+\end{align*}
+\end{solution}
+
+\section*{Q3}
+Let $n$ be a positive integer. Show that
+$$
+\binom{2n }{n+1 }+\binom{2n }{n}=\binom{2n+2 }{n+1 } / 2
+$$
+\begin{proof}
+From the property of combination: 
+$\binom{n }{k}+\binom{n }{k-1}=\binom{n+1 }{k}$, we deduce:
+\begin{align*}
+  \binom{2n }{n+1}+\binom{2n }{n}&=\binom{2n+1 }{n+1}\\
+  &=\frac{1}{2}\left[\binom{2n+1 }{n}+\binom{2n+1}{n+1}\right]\\
+  &=\frac{1}{2 }\binom{2n+2}{n+1}
+\end{align*}
+\end{proof}
+
+\section*{Q4}
+Give a combinatorial proof that
+\begin{equation*}
+  \sum_{k=1}^{n }k\binom{n }{k}=n\cdot 2^{n-1}
+\end{equation*}
+\begin{proof}
+    Let's count in two ways the number of ways to select a
+committee and to then select a leader of the committee out of $n$ people.
+
+First, if we consider the committee by the scale of people. For a $k$-people
+committee, then the cases are first choose $k$ people, namely $\binom{n }{k}$
+;then there are $k$ chances to pick a leader out of all of them, and thus, 
+the answer should be $k\binom{n }{k}$. Let $k$ iterate from 1 to $n$, then the total sum should be $\sum_{k=1}^{n }k\binom{n }{k}$.
+
+From a different perspective, we first pick a leader then there are $n$ choices in total, then for the rest $n-1$ people, they are either in the committee or not, so there are $2^{n-1}$ cases, put the 2 parts together, we get $n\cdot 2^{n-1}$.
+\end{proof}
+
+\section*{Q5}
+In how many ways can a $2 \times  n$ rectangular checkerboard be
+tiled using $1 \times  2$ and $2 \times  2$ pieces?
+\begin{solution}
+Denote $F[n]$ as the answer for the $2\times n$ case.
+\begin{enumerate}[(I)]
+    \item Base case $n=1$.
+    $F[1]=1$.
+
+    \item Base case $n=2$.
+    $F[2]=3$.
+
+    
+    \item Common case for $n\ge 3$. \\
+    If we use $1\times 2$ blocks, then there are 2 ways. If put it \textbf{vertically}, then $F[n-2]$; if put it \textbf{horizontally}, then $F[n-1]$. \\
+    If we use $2\times 2$ block, then $F[n-2]$.\\
+    In total, $F[n]=F[n-1]+2F[n-2]$.
+\end{enumerate}
+Solving it, we get $F[n]=\frac{2}{3}\cdot 2^{n}+\frac{1}{3}\cdot (-1)^{n}$.
+\end{solution}
+\section*{Q6}
+\begin{qparts}
+    
+    \item Find the recurrence relation satisﬁed by $R_n$, where $R_n$ is $\#$
+    regions that a plane is divided into by $n$ lines, if no two of the
+    lines are parallel and no three of the lines go through the same
+    point.
+    \begin{solution}
+        It's easy to see that $R_{n}=R_{n-1}+n$ where $R_1=2$. 
+    \end{solution}
+    
+    \item Find $R_n$ using iteration.
+    \begin{solution}
+        $R_{n}=R_{n-1}+n=R_{n-2}+(n-1)+n=R_1+2+ \cdots +(n-1)+n=1+n(n+1) / 2$.
+    \end{solution}
+\end{qparts}
+
+\section*{Q7}
+A vending machine dispensing books of stamps accepts only
+one-dollar coins, \$1 bills, and \$5 bills.
+\begin{qparts}
+    
+    \item Find a recurrence relation for the number of ways to deposit $n$
+    dollars in the vending machine, where the order in which the
+    coins and bills are deposited matters.
+    \begin{solution}
+        Denote $F[n]$ as the ways for the $n$ dollars case.
+        Considering always put the newest item at the end of the sequence, then this ensures iterate all permutations but no repetition. Then $
+        \begin{cases}
+            F[n]=2F[n-1]&,0<n< 5\\
+            F[n]=2F[n-1]+F[n-5]&,n\ge 5
+        \end{cases}
+        $.
+    \end{solution}
+    
+    \item What are the initial conditions?
+    \begin{solution}
+        $F[0]=1$.
+    \end{solution}
+    \item How many ways are there to deposit \$10 for a book of stamps?
+    \begin{solution}
+        By calculation, we get $\textbf{Ans}=1217$.
+    \end{solution}
+\end{qparts}
+\section*{Q8}
+For bit strings, find a recurrence relation for the number of bit
+strings of length $n$ that contain an odd number of 0s.
+\begin{solution}
+    Denote $F[n,0]$ as the number of cases where there exists even 0s, and
+    $F[n,1]$ for the odd case. Then we can get the recurrence relation:
+    \begin{equation*}
+        F[n,0]=F[n-1,0]+F[n-1,1]
+    \end{equation*}
+    \begin{equation*}
+        F[n,1]=F[n-1,0]+F[n-1,1]
+    \end{equation*}
+    And the initial condition, $F[1,0]=F[1,1]=1$.
+\end{solution}
+\section*{Q9}
+\begin{enumerate}
+    \item[1.] Given two strings $A$ and $B$, we need to find the minimum number of operations which can be applied on $A$ to convert it to $B$. The operations are:
+        \begin{itemize}
+          \item[a.] Edit - Change a character to another character;
+
+          \item[b.] Delete - Delete a character;
+
+          \item[c.] Insert - Insert a character.
+        \end{itemize}
+        The \textbf{edit distance} of two strings is defined by the minimum \# operations required to transform one string into the other. For the following two strings, their edit distance is 3.
+        \begin{align*}
+          & GC\textcolor[rgb]{1.00,0.00,0.00}{G}TATG\textcolor[rgb]{1.00,0.00,0.00}{A}GGCTA\textcolor[rgb]{1.00,0.00,0.00}{-}ACGC\\
+          & GC\textcolor[rgb]{1.00,0.00,0.00}{-}TATG\textcolor[rgb]{1.00,0.00,0.00}{C}GGCTA\textcolor[rgb]{1.00,0.00,0.00}{T}ACG
+        \end{align*}
+        Please utilize the dynamic programming to compute the edit distance between two strings $A$ and $B$.
+        \begin{itemize}
+          \item[a.] Define the subproblems for DP;
+
+          \item[b.] Find the recurrence;
+
+          \item[c.] Implement the algorithm to return the edit distance of two strings.
+        \end{itemize}
+ \end{enumerate}
+\section*{Q10}
+In the knapsack problem we are given a set of $n$ items, where
+each item $i$ is speciﬁed by a size $s_i$ and a value $v_i$. We are also
+given a size bound $S$ (the size of our knapsack). The goal is to
+ﬁnd the subset of items of maximum total value such that sum
+of their sizes is at most $S$ (they all ﬁt into the knapsack).
+To implement a DP algorithm to solve this problem,
+\begin{qparts}
+    
+    \item Deﬁne subproblems;\\
+    Denote $F[i,j]$ as the maximum value under the condition where we just use the former $i$ items and the sum of the size doesn't exceed $j$.
+    \item Find the recurrence relation;
+    \item Solve the base cases;
+    \item Implement the algorithm to return the solution of the
+    knapsack problem.
+\end{qparts}
+\section*{Q11}
+\section*{Q12}
+\section*{Q13}
+\section*{Q14}
+\section*{Q15}
+\section*{Q16}
+\section*{Q17}
+
+\end{document}

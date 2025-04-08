@@ -1,6 +1,6 @@
 % Search for all the places that say "PUT SOMETHING HERE".
 
-\documentclass[a4paper,11pt]{article}
+\documentclass[11pt]{article}
 \usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
 \usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
 \usepackage{setspace} % set space between lines
@@ -110,7 +110,14 @@ How many positive integers less than 1000
     Thus, $\textbf{Ans}=\text{Ans}_{10}+\text{Ans}_{100}+\text{Ans}_{1000}=738$.
 
     \item have distinct digits and are even\\
-    It's believed that the odd cases have the same capacity with the even ones. Thus, $\textbf{Ans}=738 / 2=369$.
+    Still consider by cases.
+    \begin{enumerate}[I. ]
+        \item integers within 10. In total, $\text{Ans}_{10}=4$.
+        \item integers from 10 to 99. In total, $\text{Ans}_{100}=9+4\times 8=41$.
+        \item integers from $100$ to $999$. In total, $\text{Ans}_{1000}=
+        9\times 8+4\times 8\times 8=328$.
+    \end{enumerate}
+    Thus, $\textbf{Ans}=\text{Ans}_{10}+\text{Ans}_{100}+\text{Ans}_{1000}=373$.
 \end{qparts}
 
 \section*{Q6}
@@ -146,7 +153,7 @@ elements in each set and if
     \item there are 50 common elements in each pair of sets and 25 elements in all three sets.\\
     According to Inclusion-Exclusion Principle, \\$
     \left\vert A_1 \cup A_2 \cup A_3 \right\vert=
-    \sum\left\vert A_{i } \right\vert-\sum\left\vert A_{i} \cap A_{j } \right\vert+\left\vert A_1 \cap A_2 \cap A_3 \right\vert=300-50\cdot 3+25=170$
+    \sum\left\vert A_{i } \right\vert-\sum\left\vert A_{i} \cap A_{j } \right\vert+\left\vert A_1 \cap A_2 \cap A_3 \right\vert=300-50\cdot 3+25=175$.
 
     \item the sets are equal\\
     $\left\vert A_1 \cup A_2 \cup A_3 \right\vert=\left\vert A_1 \right\vert=100  $.
