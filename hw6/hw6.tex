@@ -1,23 +1,5 @@
-% Search for all the places that say "PUT SOMETHING HERE".
-
 \documentclass[a4paper,11pt]{article}
-\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
-\usepackage[shortlabels]{enumitem}  % to decorate enumerate (a)... a)...
-\usepackage{setspace} % set space between lines
-\usepackage{algorithm}
-\usepackage{algpseudocodex}
-\usepackage{listings}
-\usepackage[utf8]{inputenc}
-
-% Default fixed font does not support bold face
-\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
-\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
-
-% Custom colors
-\usepackage{color}
-\definecolor{deepblue}{rgb}{0,0,0.5}
-\definecolor{deepred}{rgb}{0.6,0,0}
-\definecolor{deepgreen}{rgb}{0,0.5,0}
+\input{../style.tex}
 
 \def\Name{Yuquan Sun}  % Your name
 \def\SID{10234900421}  % Your student ID number
@@ -31,37 +13,6 @@
 \pagestyle{myheadings}
 \date{\today}
 
-\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
-\def\endproofmark{$\Box$}
-\newenvironment{proof}{{\bf Proof}:}{\endproofmark\smallskip}
-\newenvironment{solution}{{\\\bf Solution}:}{\smallskip}
-
-% Python style for highlighting
-\newcommand\pythonstyle{\lstset{
-language=Python,
-basicstyle=\ttm,
-morekeywords={self},              % Add keywords here
-keywordstyle=\ttb\color{deepblue},
-emph={MyClass,__init__},          % Custom highlighting
-emphstyle=\ttb\color{deepred},    % Custom highlighting style
-stringstyle=\color{deepgreen},
-frame=tb,                         % Any extra options here
-showstringspaces=false
-}}
-% Python environment
-\lstnewenvironment{python}[1][]
-{
-\pythonstyle
-\lstset{#1}
-}
-{}
-\lstset{ literate={-}{-}1 }% 确保减号正常解析 
-
-\textheight=9in
-\textwidth=6.5in
-\topmargin=-.75in
-\oddsidemargin=0.25in
-\evensidemargin=0.25in
 % \onehalfspacing
 % \doublespacing
 
@@ -140,6 +91,7 @@ Denote $F[n]$ as the answer for the $2\times n$ case.
 \end{enumerate}
 Solving it, we get $F[n]=\frac{2}{3}\cdot 2^{n}+\frac{1}{3}\cdot (-1)^{n}$.
 \end{solution}
+
 \section*{Q6}
 \begin{qparts}
     
@@ -184,6 +136,7 @@ one-dollar coins, \$1 bills, and \$5 bills.
         By calculation, we get $\textbf{Ans}=1217$.
     \end{solution}
 \end{qparts}
+
 \section*{Q8}
 For bit strings, find a recurrence relation for the number of bit
 strings of length $n$ that contain an odd number of 0s.
@@ -198,30 +151,76 @@ strings of length $n$ that contain an odd number of 0s.
     \end{equation*}
     And the initial condition, $F[1,0]=F[1,1]=1$.
 \end{solution}
+
 \section*{Q9}
-\begin{enumerate}
-    \item[1.] Given two strings $A$ and $B$, we need to find the minimum number of operations which can be applied on $A$ to convert it to $B$. The operations are:
-        \begin{itemize}
-          \item[a.] Edit - Change a character to another character;
+Given two strings $A$ and $B$, we need to find the minimum number of operations which can be applied on $A$ to convert it to $B$. The operations are:
+\begin{itemize}
+    \item[a.] Edit - Change a character to another character;
 
-          \item[b.] Delete - Delete a character;
+    \item[b.] Delete - Delete a character;
 
-          \item[c.] Insert - Insert a character.
-        \end{itemize}
-        The \textbf{edit distance} of two strings is defined by the minimum \# operations required to transform one string into the other. For the following two strings, their edit distance is 3.
-        \begin{align*}
-          & GC\textcolor[rgb]{1.00,0.00,0.00}{G}TATG\textcolor[rgb]{1.00,0.00,0.00}{A}GGCTA\textcolor[rgb]{1.00,0.00,0.00}{-}ACGC\\
-          & GC\textcolor[rgb]{1.00,0.00,0.00}{-}TATG\textcolor[rgb]{1.00,0.00,0.00}{C}GGCTA\textcolor[rgb]{1.00,0.00,0.00}{T}ACG
-        \end{align*}
-        Please utilize the dynamic programming to compute the edit distance between two strings $A$ and $B$.
-        \begin{itemize}
-          \item[a.] Define the subproblems for DP;
+    \item[c.] Insert - Insert a character.
+\end{itemize}
+The \textbf{edit distance} of two strings is defined by the minimum \# operations required to transform one string into the other. For the following two strings, their edit distance is 3.
+\begin{align*}
+    & GC\textcolor[rgb]{1.00,0.00,0.00}{G}TATG\textcolor[rgb]{1.00,0.00,0.00}{A}GGCTA\textcolor[rgb]{1.00,0.00,0.00}{-}ACGC\\
+    & GC\textcolor[rgb]{1.00,0.00,0.00}{-}TATG\textcolor[rgb]{1.00,0.00,0.00}{C}GGCTA\textcolor[rgb]{1.00,0.00,0.00}{T}ACG
+\end{align*}
+Please utilize the dynamic programming to compute the edit distance between two strings $A$ and $B$.
 
-          \item[b.] Find the recurrence;
+\begin{qparts}
+\item Define the subproblems for DP;\\
+Denote $F[i,j]$ as the minimum \# operations required to let the former $i$ letters of string $A$ and former $j$ letters of string $B$ be the same.
 
-          \item[c.] Implement the algorithm to return the edit distance of two strings.
-        \end{itemize}
- \end{enumerate}
+\item Find the recurrence;\\
+Denote $A[i]$ as the $i$th letter of string $A$.
+
+If $A[i]=B[j]$, then there is no need to make any change and thus $F[i,j]=F[i-1,j-1]$.
+If $A[i]\neq B[j]$, we have 3 approaches:
+\begin{itemize}
+    
+    \item \textbf{Edit} Then we just need to ensure the former letters are the same aka. $F[i,j]=\min \left\{ F[i,j],F[i-1,j-1]+1 \right\} $.
+    \item \textbf{Delete} Then we should make sure the former letters of $A$ should be same as $B[1\cdots j]$ aka. $F[i,j]=\min \left\{ F[i,j],F[i-1,j]+1 \right\} $.
+    \item \textbf{Insert} Then we should make sure the letters of $A$ is the same as the former letters of string $B$ aka. $F[i,j]=\min \left\{ F[i,j],F[i,j-1]+1 \right\} $.
+\end{itemize}
+To sum up, we have:
+$$
+F[i,j]=
+\begin{cases}
+    F[i-1,j-1]&,A[i]=B[j]\\
+    \min \left\{ F[i-1,j-1],F[i-1,j],F[i,j-1] \right\}+1&,A[i]\neq B[j] 
+\end{cases}
+$$
+Initial condition: \\
+$\forall i \in \{ 1,2, \ldots ,A.\text{length}\},F[i,0]=i$ and $\forall i \in \{ 1,2, \ldots ,B.\text{length} \},F[0,i]=i$.
+
+\item Implement the algorithm to return the edit distance of two strings.
+\begin{algorithm}
+    \caption{edit distance of string $A$ and string $B$}
+    \begin{algorithmic}
+        \Require string $A,B$, length of string $A,B$ $l_{A},l_{B}$
+        \Ensure the edit distance between string $A$ and $B$ $F[l_{A},l_{B}]$.
+        \For{$i\gets  1$ \textbf{to} $l_{A}$}
+        \State $F[i,0]=i$
+        \EndFor
+        \For{$i\gets  1$ \textbf{to} $l_{B}$}
+        \State $F[0,i]=i$
+        \EndFor
+        \For{$i\gets  1$ \textbf{to} $l_{A}$}
+        \For{$j\gets  1$ \textbf{to} $l_{B}$}
+        \If{$A[i]=B[j]$}
+        \State $F[i,j]=F[i-1,j-1]$
+        \Else
+        \State $F[i,j]=\min \left( F[i-1,j-1],F[i-1,j],F[i,j-1] \right) +1$
+        \EndIf
+        \EndFor
+        \EndFor
+        \Comment{return $F[l_A,l_B]$}
+    \end{algorithmic}
+\end{algorithm}
+
+\end{qparts}
+
 \section*{Q10}
 In the knapsack problem we are given a set of $n$ items, where
 each item $i$ is speciﬁed by a size $s_i$ and a value $v_i$. We are also
@@ -233,17 +232,64 @@ To implement a DP algorithm to solve this problem,
     
     \item Deﬁne subproblems;\\
     Denote $F[i,j]$ as the maximum value under the condition where we just use the former $i$ items and the sum of the size doesn't exceed $j$.
-    \item Find the recurrence relation;
-    \item Solve the base cases;
+
+    \item Find the recurrence relation;\\
+    For the $i$th item, we can either choose or not. Thus, we get
+    $$
+    F[i,j]=
+    \begin{cases}
+        F[i-1,j]&,\text{if $s_i>j$}\\
+        \max \left\{ F[i-1,j],F[i-1,j-s_i]+v_i \right\} &,\text{if $s_i\le j$}
+    \end{cases}
+    $$
+
+    \item Solve the base cases;\\
+    $\forall i \in \{ 0,1,2, \ldots n \},F[i,0]=0$.
+
     \item Implement the algorithm to return the solution of the
-    knapsack problem.
+    knapsack problem.\\
+    \begin{algorithm}
+    \caption{0-1 knapsack problem}
+        \begin{algorithmic}
+            \Require number of item $n$, max capacity $m$, item sizes $s[1\cdots n]$, item value $v[1\cdots n]$.
+            \Ensure max value with sizes not exceed capacity $F[n,m]$.
+            \For{$i \gets 0$ \textbf{to} $n$}
+            \State $F[i,0]\gets 0$
+            \EndFor
+            \For {$i\gets 1$ \textbf{to} $n$}
+            \For {$j\gets 0$ \textbf{to} $m$}
+            \If {$s[i]>j$}
+            \State $F[i,j]=F[i-1,j]$
+            \Else
+            \State $F[i,j]=\max\left( F[i-1,j],F[i-1,j-s[i]]+v[i] \right) $
+            \EndIf
+            \EndFor
+            \EndFor
+            \Comment{return $F[n,m]$}
+        \end{algorithmic}
+    \end{algorithm}
 \end{qparts}
+% \newpage
 \section*{Q11}
+Solve the following recurrence relations
+\begin{qparts}
+    
+    \item $a_n=5a_{n-1}-6a_{n-2}$ for $n\ge 2$ with $a_0=1$ and $a_1=0$.
+    \item $a_n=a_{n-1}+6a_{n-2}$ for $n\ge 2$ with $a_0=6$ and $a_1=8$.
+    
+\end{qparts}
+
 \section*{Q12}
-\section*{Q13}
-\section*{Q14}
-\section*{Q15}
-\section*{Q16}
-\section*{Q17}
+
+The Lucas numbers satisfy the recurrence relation
+\[L_n = L_{n-1} + L_{n-2}\]
+and the initial conditions $L_0 = 2$ and $L_1 = 1.$
+\begin{qparts}
+\item Show that $L_n = f_{n-1} + f_{n+1}$ for $n = 2, 3, \cdots ,$
+where $f_n$ is the $n-$th Fibonacci number.
+
+\item Find an explicit formula for the Lucas numbers.
+\end{qparts}
+
 
 \end{document}
