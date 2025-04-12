@@ -20,3 +20,9 @@ discrete math and its applications
 
 - **Mar. 28th 2025**
     learn combination mathematics
+
+- **Apr. 3rd 2025**
+    learn DP, and LHRR ...
+
+- **Apr. 12th 2025**
+    learn divide-and-conquer, and master theorem
