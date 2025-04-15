@@ -4,7 +4,7 @@
 
 \def\Name{Yuquan Sun}  % Your name
 \def\SID{10234900421}  % Your student ID number
-\def\Homework{6} % Number of Homework
+\def\Homework{7} % Number of Homework
 \def\Session{Spring 2025}
 
 
@@ -27,40 +27,227 @@ Solve the following recurrence relations
     \item $a_n=6a_{n-1}-12a_{n-2}+8a_{n-3}$ with 
     $a_0=-5,a_1=4$, and $a_2=88$.
     \begin{solution}
-        
+        The characteristic equation of $a_n=6a_{n-1}-12a_{n-2}+8a_{n-3}$ is $\lambda ^{3}-6\lambda ^{2}+12\lambda-8=0$. 
+    
+    Solving it, we get: $\lambda_1=\lambda_2=\lambda_3=2$. 
+    
+    So the general solution of the recurrence relation should be 
+    $a_n=c_1\cdot 2^{n}+c_2\cdot n2^{n}+c_3\cdot n^{2}2^{n}$.
+
+    The initial condition means 
+    $\left\{
+        \begin{alignedat}{4}
+            &c_1&&&&=-5\\
+            2&c_1+{}&2c_2&+{}&2c_3&=4\\
+            4&c_1+{}&8c_2&+{}&16c_3&=88
+        \end{alignedat}
+    \right.
+    $, then we get $
+    \left\{
+        \begin{alignedat}{2}
+            c_1&=-5\\
+            c_2&=\frac{1}{2}\\
+            c_3&=\frac{13}{2}
+        \end{alignedat}
+    \right.$.
+
+    Therefore, $a_n=\left( \frac{13}{2}n^{2}+\frac{1}{2}n-5 \right)\cdot 2^{n} $.
+    \end{solution}
+    
+    \item $a_n=-3a_{n-1}-3a_{n-2}-a_{n-3}$ with 
+    $a_0=5,a_1=-9$, and $a_2=15$.
+    \begin{solution}
+        The characteristic equation of $a_n=-3a_{n-1}-3a_{n-2}-a_{n-3}$ is $\lambda ^{3}+3\lambda ^{2}+3\lambda+1=0$. 
+    
+    Solving it, we get: $\lambda_1=\lambda_2=\lambda_3=-1$. 
+    
+    So the general solution of the recurrence relation should be 
+    $a_n=c_1\cdot (-1)^{n}+c_2\cdot n(-1)^{n}+c_3\cdot n^{2}(-1)^{n}$.
+
+    The initial condition means 
+    $\left\{
+        \begin{alignedat}{4}
+            &c_1&&&&=5\\
+            -&c_1-{}&c_2&-{}&c_3&=-9\\
+            &c_1+{}&2c_2&+{}&4c_3&=15
+        \end{alignedat}
+    \right.
+    $, then we get $
+    \left\{
+        \begin{alignedat}{2}
+            c_1&=5\\
+            c_2&=3\\
+            c_3&=1
+        \end{alignedat}
+    \right.$.
+
+    Therefore, $a_n=\left( n^{2}+3n+5 \right)\cdot (-1)^{n} $.
     \end{solution}
 
+    \item $a_n=2 a_{n-1}+3\cdot 2^{n}$ for $n\ge 1$ with 
+    $a_1=5$.
+    \begin{solution}
+        The associated LHRR is $a_n=2 a_{n-1}$. Its solution is 
+        $a_{n}=\alpha\cdot 2^{n}$, where $\alpha$ is a constant.
+
+        Let $p_n=\beta \cdot n 2^{n}$ be a particular solution of the recurrence relation, where $\beta$ is a constant. Then we have 
+        $\beta\cdot n 2^{n}=2\beta\cdot (n-1)2^{n-1}+3\cdot 2^{n}$, that is 
+        $\beta=3$. 
+
+        Consequently, $a_{n}=\{ a_{n}^{(p)}+a_{n}^{(h)} \}=3n\cdot 2^{n}+\alpha\cdot 2^{n}$. Using the initial conditions, it gives $\alpha=-\frac{1}{2}$. Thus, $a_n=3n\cdot 2^{n}-2^{n-1}$.
+    
+    \end{solution}
+
+    \item $a_n=2 a_{n-1}+2n^{2}$ for $n\ge 1$ with $a_1=2$.
+    \begin{solution}
+        The associated LHRR is $a_n=2 a_{n-1}$. Its solution is 
+        $a_{n}=\alpha\cdot 2^{n}$, where $\alpha$ is a constant.
+
+        Let $p_n=cn^{2}+dn+e$ be a particular solution of the recurrence relation, where $c,d,e$ are constants. Then we have 
+        $cn^{2}+dn+e=2\left[ c(n-1)^{2}+d(n-1)+e \right]+2n^{2} 
+        $, then we have
+        $c=-\frac{1}{2},d=-2,e=-3$. 
+
+        Consequently, $a_{n}=\{ a_{n}^{(p)}+a_{n}^{(h)} \}=
+        -\frac{1}{2}n^{2}-2n-3+\alpha\cdot 2^{n}$. Using the initial conditions, it gives $\alpha=\frac{15}{4}$. Thus, $a_n=-\frac{1}{2}n^{2}-2n-3+\frac{15}{4}\cdot 2^{n}$.
+    
+    \end{solution}
 \end{qparts}
 
 
 \section*{Q2}
+What is the general form of the particular solution guaranteed
+to exist by Theorem 6 of the linear nonhomogeneous
+recurrence relation $a_{n}=8a_{n-2}-16a_{n-4}+F(n)$ if
+\begin{solution}
+    The associated LHRR is $a_{n}=8a_{n-2}-16a_{n-4}$. Its solution 
+    is $a_{n}^{(h)}=\alpha\cdot 4^{n}+\beta\cdot n 4^{n}$.
+    \begin{qparts}
+        
+        \item $F(n)=n^{3}$\\
+        $a_{n}=\{ a_{n}^{(h)}+a_{n}^{(p)} \}=
+        \alpha\cdot 4^{n}+\beta\cdot n 4^{n}+
+        c_3 n^{3}+c_2 n^{2}+c_1 n+c_0$.
 
+        \item $F(n)=(-2)^{n}$\\
+        $a_{n}=\{ a_{n}^{(h)}+a_{n}^{(p)} \}=
+        \alpha\cdot 4^{n}+\beta\cdot n 4^{n}+
+        c_0\cdot (-2)^{n}
+        $.
+
+        \item $F(n)=n  2^{n}$\\
+        $a_{n}=\{ a_{n}^{(h)}+a_{n}^{(p)} \}=
+        \alpha\cdot 4^{n}+\beta\cdot n 4^{n}+
+        (c_1 n+c_0)\cdot 2^{n}
+        $.
+
+        \item $F(n)=n^{2}4^{n}$\\
+        $a_{n}=\{ a_{n}^{(h)}+a_{n}^{(p)} \}=
+        \alpha\cdot 4^{n}+\beta\cdot n 4^{n}+
+        n^{2}(c_2 n^{2}+c_1 n+c_0)\cdot 4^{n}
+        $.
+
+        \item $F(n)=(n^{2}-2)(-2)^{n}$\\
+        $a_{n}=\{ a_{n}^{(h)}+a_{n}^{(p)} \}=
+        \alpha\cdot 4^{n}+\beta\cdot n 4^{n}+
+        (c_2 n^{2}+c_1 n+c_0)\cdot (-2)^{n}
+        $.
+
+        \item $F(n)=2$\\
+        $a_{n}=\{ a_{n}^{(h)}+a_{n}^{(p)} \}=
+        \alpha\cdot 4^{n}+\beta\cdot n 4^{n}+c_0
+        $.
+    \end{qparts}
+\end{solution}
 
 \section*{Q3}
-
-
+What is the general form of the solutions of a linear
+homogeneous recurrence relation if its characteristic equation
+has roots 1, 1, 1, 1,-2,-2,-2, 3, 3,-4?
+\begin{solution}
+    $a_{n}=(a_3 n^{3}+a_2 n^{2}+a_1 n+a_0)+
+    (b_2 n^{2}+b_1 n+b_0)\cdot (-2)^{n}+
+    (c_1 n+c_0)\cdot 3^{n}+
+    d_0\cdot (-4)^{n}
+    $.
+\end{solution}
 \section*{Q4}
+Suppose that each person in a group of $n$ people votes for
+exactly two people from a slate of candidates to ﬁll two
+positions on a committee. The top two ﬁnishers both win
+positions as long as each receives more than $n/2$ votes. Devise
+a DC algorithm that determines whether the two candidates
+who received the most votes each received at least $n/2$ votes
+and, if so, determine who these two candidates are.
+\begin{solution}
+    \begin{algorithm}
+        \caption{most 2 voted candidates}
+        \begin{algorithmic}
+            \Require voted candidates' names $v[1\cdots n]$
+            \Procedure{count}{voted candidates' names $v[1\cdots n]$,
+            left bound $l$, right bound $r$,candidate $c$}
+            \State $\mathtt{ret}\gets 0$
+            \For{$i\gets l$ \textbf{to} $r$}
+            \If {$v[i][1]=c$}
+            \State $\mathtt{ret}\gets \mathtt{ret}+1$
+            \EndIf
+            \If {$v[i][2]=c$}
+            \State $\mathtt{ret}\gets \mathtt{ret}+1$
+            \EndIf
+            \EndFor
+            \State\Return {$\mathtt{ret}$}
+            \EndProcedure
 
+            \Procedure{solve}{voted candidates' names $v[1\cdots n]$,
+            left bound $l$, right bound $r$}
+            \If{$l=r$}
+            \State \Return{$v[l]$}
+            \EndIf
+            \State $\mathtt{mid}\gets (l+r) / 2$
+            \State $\mathtt{can}\gets$\Call{union}{\Call{solve}{$v,l,\mathtt{mid}$},\Call{solve}{$v,\mathtt{mid}+1,r$}}
+            \State sort $\mathtt{can}$ by the \Call{count}{$v$,$l$,$r$,$c$} foreach $c$ in $\mathtt{can}$
+            \State \Return $[\mathtt{can[1]},\mathtt{can[2]},\mathtt{can[3]}]$
+            \Comment{always get top 3 candidates}
+            \EndProcedure
+            \State $\mathtt{res}\gets$ \Call{solve}{$v,l,r$}
+            \If {\Call{count}{$l,r,\mathtt{res}[1]$} $> n / 2$}
+            \State output $\mathtt{res}[1]$
+            \EndIf
+            \If {\Call{count}{$l,r,\mathtt{res}[2]$} $> n / 2$}
+            \State output $\mathtt{res}[2]$
+            \EndIf
+        \end{algorithmic}
+    \end{algorithm}
+\end{solution}
 
 \section*{Q5}
+Set up a DC recurrence relation for the number of
+multiplications required to compute $x^{n}$, where $x$ is a real
+number and $n$ is a positive integer;
+\begin{solution}
+    
+    \begin{algorithm}
+        \caption{$n$ power of $x$}
+        \begin{algorithmic}
+            \Procedure{power}{$x$,$n$}
+            \If{$n=0$}
+            \State\Return {$1$}
+            \EndIf
 
+            \If{$n=1$}
+            \State\Return{ $x$}
+            \EndIf
 
-\section*{Q6}
+            \State $t\gets$ \Call{power}{$\left\lfloor x / 2 \right\rfloor$}
+            \If{$x \mod 2=0$}
+            \State\Return{$t^{2}$}
+            \Else 
+            \State\Return{$x\cdot t^{2}$}
+            \EndIf
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+\end{solution}
 
-
-\section*{Q7}
-
-
-\section*{Q8}
-
-\section*{Q9}
-\section*{Q10}
-\section*{Q11}
-\section*{Q12}
-\section*{Q13}
-\section*{Q14}
-\section*{Q15}
-\section*{Q16}
-\section*{Q17}
 
 \end{document}
