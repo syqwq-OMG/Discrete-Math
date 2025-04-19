@@ -1,0 +1,206 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+\documentclass[11pt]{article}
+\input{../style.tex}
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{8} % Number of Homework
+\def\Session{Spring 2025}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{Discrete Math--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+% \onehalfspacing
+% \doublespacing
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+What is the \textbf{probability} of these events when we randomly
+select a permutation of $\{ 1,2,3,4 \}$?\\
+Let the sample space $\Omega$ be ``all permutations of $\{ 1,2,3,4 \}$'',
+then we get $\left\vert \Omega \right\vert =4! = 24$.
+
+\begin{qparts}
+    
+    \item 1 precedes 4
+    \begin{solution}
+        Let $E$ be the event ``1 precedes 4''. Then, if we switch the position of 1 and 4, then we get a case in $\overline{E}$ and thus there exists a bijection between $E$ and $\overline{E}$, so $\left\vert E \right\vert = \left\vert \overline{E} \right\vert $. Therefore, $P(E)=\frac{1}{2}$.
+    \end{solution}
+
+    \item 4 precedes 1 and 4 precedes 2
+    \begin{solution}
+        Let $E$ be the event ``4 precedes 1 and 2''. Then,
+        $\left\vert E \right\vert=3!+2=8 $. Therefore, 
+        $P(E)=\frac{\left\vert E  \right\vert }{\left\vert \Omega \right\vert }=\frac{8}{24}=\frac{1}{3}$.
+    \end{solution}
+    
+    \item 4 precedes 3 and 2 precedes 1
+    \begin{solution}
+        Let $E$ be the event ``4 precedes 3 and 2 precedes 1''.
+        $\left\vert E \right\vert =2\cdot 2+2=6$. Therefore, 
+        $P(E)=\frac{\left\vert E  \right\vert}{\left\vert \Omega \right\vert }=\frac{6}{24}=\frac{1}{4}$.
+    \end{solution}
+\end{qparts}
+
+
+\section*{Q2}
+What is the probability that a positive integer not exceeding
+100 selected at random is divisible by 5 or 7?
+\begin{solution}
+    Let $\Omega$ be the sample space of choosing integer within 100, then 
+    $\left\vert \Omega \right\vert =100$.
+    Let $E_1$ be event that ``the number chosen is divisible by 5'', and 
+    $E_2$ be event that ``the number chosen is divisible by 7''.
+    \begin{align*}
+        \textbf{Ans}=P(E_1 \cup E_2)&=P(E_1)+P(E_2)-P(E_1 \cap E_2)\\
+        &=\left\lfloor \frac{100}{5} \right\rfloor+\left\lfloor \frac{100}{7} \right\rfloor
+        -\left\lfloor \frac{100}{5\cdot 7} \right\rfloor\\
+        &=20+14-2\\
+        &=32
+    \end{align*}
+\end{solution}
+
+\section*{Q3}
+For each of the following pairs of events, which are subsets of
+the set of all possible outcomes when a coin is tossed three
+times, determine whether or not they are independent.
+\begin{qparts}
+    
+    \item $E_1$: tails comes up with the coin is tossed the ﬁrst time; $E_2$:
+    heads comes up when the coin is tossed the second time.
+    \begin{solution}
+        Yes.
+    \end{solution}
+    
+    \item  $E_1$: the ﬁrst coin comes up tails; $E_2$: two, and not three, heads
+    come up in a row.
+    \begin{solution}
+        Yes.
+    \end{solution}
+    
+    \item  $E_1$: the second coin comes up tails; $E_2$: two, and not three,
+    heads come up in a row.
+    \begin{solution}
+        No.
+    \end{solution}
+\end{qparts}
+
+
+\section*{Q4}
+Let $E_1$ and $E_2$ be events in sample space $\Omega$. Then 
+we have
+\begin{equation*}
+  P(E_1 \cup E_2)=P(E_1)+P(E_2)-P(E_1\cap E_2)
+\end{equation*}
+\begin{proof}
+    Using Inclusion-Exclusion Principle, we get:
+    \begin{equation*}
+      \left\vert E_1\cup E_2 \right\vert =
+      \left\vert E_1 \right\vert +\left\vert E_2 \right\vert -
+      \left\vert E_1 \cap E_2 \right\vert 
+    \end{equation*}
+    divide by sides by $\left\vert \Omega \right\vert $, we conclude that 
+    \begin{equation*}
+        P(E_1\cup E_2)=\frac{\left\vert E_1\cup E_2 \right\vert }{\left\vert \Omega \right\vert }=
+        \frac{\left\vert E_1 \right\vert }{\left\vert \Omega \right\vert }
+        +\frac{\left\vert E_2   \right\vert }{\left\vert \Omega \right\vert }
+        -\frac{\left\vert E_1 \cap E_2 \right\vert }{\left\vert \Omega \right\vert }
+        =P(E_1)+P(E_2)-P(E_1\cap E_2)
+    \end{equation*}
+\end{proof}
+
+\section*{Q5}
+What is the conditional probability that a randomly generated
+bit string of length four contains at least two consecutive 0s,
+given that the ﬁrst bit is a 1? (Assume the probabilities of a 0
+and a 1 are the same.)
+\begin{solution}
+    Let $\Omega$ the sample space. Let $A$ be the event ``a randomly generated bit string of length four contains at least two consecutive 0'', $B$ be `` the first bit is a 1''.
+
+    Then, 
+    $P(B)=\frac{\left\vert B \right\vert }{\left\vert \Omega \right\vert }=\frac{1}{2}$, 
+    $P(AB)=\frac{\left\vert A \cap B \right\vert }{\left\vert \Omega \right\vert }=\frac{3}{2^{4}}=\frac{3}{16}$.
+    So, $P(A \vert B)=\frac{P(AB)}{P(B)}=\frac{3}{8}$.
+
+\end{solution}
+
+\section*{Q6}
+What is the conditional probability that exactly four heads
+appear when a fair coin is ﬂipped ﬁve times, given that the
+ﬁrst ﬂip came up heads?
+\begin{solution}
+    Let $A$ be the event that 
+    ``the ﬁrst ﬂip came up heads'', 
+    $B$ be ``exactly four heads appear when a fair 
+    coin is flipped five times.''.
+
+    Then, $P(B)=\frac{5}{2^{5}}$, $P(AB)=\frac{4}{2^{5}}$. Therefore,
+    $P(A \vert B)=\frac{P(AB)}{P(B)}=\frac{4}{5}$.
+\end{solution}
+
+\section*{Q7}
+Find each of the following probabilities when a coin is ﬂipped $n$
+times, and head appears with probability $p$.
+\begin{qparts}
+    
+    \item the probability of no failures
+    \begin{solution}
+        Let $E_1$ be ``no failures''. $P(E_1)=
+        \binom{n }{n }\cdot p^{n }(1-p)^{0}=p^{n}$.
+    \end{solution}
+    \item the probability of at least one failure
+    \begin{solution}
+        Let $E_2$ be ``at least one failure''. 
+        Then, $P(E_2)=1-P(E_1)=1-p^{n}$.
+    \end{solution}
+    \item the probability of at most one failure
+    \begin{solution}
+        Let $E_3$ be ``at most one failure''.
+        Then, $P(E_3)=P(E_1)+\binom{n }{n-1}\cdot p^{n-1}(1-p)
+        =p ^{n}+n\cdot p^{n-1}(1-p)=np^{n-1}+(1-n)p^{n}$.
+    \end{solution}
+    \item the probability of at least two failures
+    \begin{solution}
+        Let $E_4$ be ``at least two failures''. Then,
+        $P(E_4)=1-P(E_3)=1-np^{n-1}+(n-1)p^{n}$.
+    \end{solution}
+\end{qparts}
+
+\section*{Q8}
+Suppose that $E,F_1,F_2$, and $F_3$ are events from a sample space 
+$\Omega$ and that $F_1,F_2$,and $F_3$ are paircase disjoint and their
+union is $\Omega$. Find $P(E)$ if $P(E \vert F_1)=1 / 8 $,
+$P(E\vert F_2)=1 / 4$,$P(E \vert F_3)=1 / 6$,$P(F_1)=1 / 4$,
+$P(F_2)=1 / 4$, and $P(F_3)=1 / 2$.
+\begin{solution}
+\begin{align*}
+    P(E)&=P(E \vert F_1)P(F_1)+P(E \vert F_2)P(F_2)+P(E \vert F_3)P(F_3)\\
+    &=\frac{1}{8}\cdot \frac{1}{4}+\frac{1}{4}\cdot \frac{1}{4}+\frac{1}{6}\cdot \frac{1}{2}\\
+    &=\frac{17}{96}
+\end{align*}
+\end{solution}
+
+\section*{Q9}
+When a test for steroids is given to soccer players, 98\% of the
+players taking steroids test positive and 12\% of the players not
+taking steroids test positive. Suppose that 5\% of soccer
+players take steroids. What is the probability that a soccer
+player who tests positive takes steroids?
+\begin{solution}
+    Let $A$ be ``test positive'', $B$ be ``take steroids'' .
+    Let $E$ be ``a soccer
+    player who tests positive takes steroids''.
+    \begin{align*}
+        P(B \vert A)&=\frac{P(A \vert B)P(B)}{P(A \vert B)P(B)+P(A \vert \overline{B})P(\overline{B})}\\
+        &=\frac{98\%\cdot 5\%}{98\%\cdot 5\%+12\%\cdot 95\%}\\
+        &=\frac{49}{163}\approx 30.1\%
+    \end{align*}
+\end{solution}
+
+\end{document}
