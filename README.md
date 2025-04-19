@@ -26,3 +26,6 @@ discrete math and its applications
 
 - **Apr. 12th 2025**
     learn divide-and-conquer, and master theorem
+
+- **Apr. 19th 2025**
+    learn basic probability.
