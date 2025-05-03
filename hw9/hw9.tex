@@ -1,0 +1,260 @@
+% Search for all the places that say "PUT SOMETHING HERE".
+\documentclass[11pt]{article}
+\input{../style.tex}
+
+\def\Name{Yuquan Sun}  % Your name
+\def\SID{10234900421}  % Your student ID number
+\def\Homework{9} % Number of Homework
+\def\Session{Spring 2025}
+
+
+\title{Discrete Math --- Homework \Homework \ Solutions}
+\author{\Name, SID \SID}
+\markboth{Discrete Math--\Session\  Homework \Homework\ \Name}{Discrete Math--\Session\ Homework \Homework\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+% \onehalfspacing
+% \doublespacing
+
+\begin{document}
+\maketitle
+
+\section*{Q1}
+A shipment of 20 similar laptop computers to a retail outlet
+contains 3 that are defective. If a school makes a random
+purchase of 2 of these computers, ﬁnd the probability
+distribution for the number of defectives.
+\begin{solution}
+    Let r.v. $X$ be the number of defectives
+    in the purchase.
+
+    Then, we have
+    \begin{align*}
+        P(X=0)&=C(17 , 2) / C(20 , 2)=\frac{68}{95} \\
+        P(X=1)&=C(3 , 1)\cdot C(17 , 1) / C(20 , 2)=\frac{51}{190}\\
+        P(X=2)&=C(3,2) / C(20 , 2) =\frac{3}{190} 
+    \end{align*}
+
+\end{solution}
+
+\section*{Q2}
+An experiment consists of tossing 4 fair coins. Compute the
+probability and distribution functions for the following r.v.s.
+\begin{qparts}
+    
+    \item The number of heads before the first tail;
+    \begin{solution}
+        Denote the r.v. as $X$. Then $P(X=k)=(\frac{1}{2})^{\min \{ k+1,4 \}}$ where 
+        $k \in \{ 0,1,2,3,4 \}$.
+    \end{solution}
+
+    \item The number of heads after the first tail;
+    \begin{solution}
+        Denote the r.v. as $X$. 
+        Then $P(X=k)=\sum_{i=1}^{4-k}C(4-i,k)\cdot (\frac{1}{2})^{4}$, where 
+        $k \in \{ 1,2,3 \}$, and the core idea is to enumerate the position of the initial tail. Then for the $X=0$ case, since the first tail ensure that there must exist a tail in the consequence which cannot cover all the possible case of tossing 4 fair coins, so to make the distribution function work, we define $P(X=0):=1-\sum_{i=1}^{3}P(X=i)$ to ensure the property of the distribution function is well-defined.
+    \end{solution}
+
+    \item The number of heads less the number of tails.
+    \begin{solution}
+        Denote the r.v. as $X$. Then $P(X=-4)=P(X=4)=\frac{1}{16}$,
+        $P(X=-2)=P(X=2)=\frac{1}{4}$, $P(X=0)=\frac{3}{8}$.
+    \end{solution}
+\end{qparts}
+
+\section*{Q3}
+A coin is tossed three times. If $X$ is a r.v. giving the number 
+of head that arise, construct a table showing the probability distribution 
+of $X$.
+\begin{solution}
+    Assume the possibility of tossing a head is $p$, then the 
+    tail should be $1-p$. Then we have
+\begin{equation*}
+  P(X=k)=\binom{3}{k}\cdot p^{k}(1-p)^{3-k}
+\end{equation*}
+where $k \in \{ 0,1,2,3 \}$.
+\end{solution}
+
+
+\section*{Q4}
+An urn holds 5 white and 3 black marbles. If 2 marbles are to
+be drawn at random without replacement and $X$ denotes the
+number of white marbles, ﬁnd the probability distribution for
+$X$ .
+\begin{solution}
+    For $k \in \{ 0,1,2 \}$,
+    \begin{equation*}
+      P(X=k)=\binom{5}{k}\cdot \binom{3}{2-k}\cdot
+      \binom{8}{2}^{-1}
+    \end{equation*}
+\end{solution}
+
+\section*{Q5}
+Suppose that Frida selects a ball by ﬁrst picking one of two
+boxes at random and then selecting a ball from this box at
+random. The ﬁrst box contains two white balls and three blue
+balls, and the second box contains four white balls and one
+blue ball. What is the probability that Frida picked a ball from
+the ﬁrst box if she has selected a blue ball?
+\begin{solution}
+    For the first box, it has 2W3B, for the second box it has 4W1B.
+    Denote $F$ as pick ball from the first box, then $\overline{F}$
+    stands for picking from the second box. Denote $B$ as picking a 
+    blue ball. Then we have 
+    \begin{align*}
+        P(F \vert B)&=\frac{P(B\vert F)}{P(B \vert F)+P(B \vert \overline{F})}\\
+        &=\frac{3 / 5}{3 / 5+1 / 5}=\frac{3}{4}
+    \end{align*}
+\end{solution}
+
+\section*{Q6}
+The joint probability function of two r.v.s $X$ and $Y$ is given by 
+$f(x,y)=c(2x+y)$, where $x$ and $y$ can asseme all integers such that 
+$0\le x\le 2$, $0\le y\le 3$, and $f(x,y)=0$ otherwise.
+\begin{qparts}
+    
+    \item Find the value of the constant $c$
+    \begin{solution}
+        Use the axiom of probability, we have $$\sum_{x=0}^{2}f_{X}(x)
+        =\sum_{x=0}^{2}\sum_{y=0}^{3}f(x,y)
+        =c\cdot \sum_{x=0}^{2}\sum_{y=0}^{3} (2x+y)=1$$
+        Thus, $c=\frac{1}{42}$.
+    \end{solution}
+    
+    \item Find $P(X=2,Y=1)$
+    \begin{solution}
+        $P(X=2,Y=1)=f(2,1)=\frac{5}{42}$.
+    \end{solution}
+    
+    \item Find $P(X\ge 1,Y\le 2)$
+    \begin{solution}
+        \begin{align*}
+          P(X\ge 1,Y\le 2)&=\sum_{x=1}^{2}\sum_{y=0}^{2}f(x,y)=\sum_{x=1}^{2}\sum_{y=0}^{2}\frac{1}{42}(2x+y)=\frac{4}{7}
+        \end{align*}
+    \end{solution}
+
+    
+    \item Find the marginal probability functions of $X$ and $Y$
+    \begin{solution}
+        \begin{equation*}
+          P(X=x)=f_{X}(x)=\sum_{y=0}^{3}f(x,y)=\frac{1}{42}(8x+6)
+        \end{equation*}
+        \begin{equation*}
+          P(Y=y)=f_{Y}(y)=\sum_{x=0}^{2}f(x,y)=\frac{1}{42}(3y+6)
+        \end{equation*}
+    \end{solution}
+    
+    \item Show that the r.v.s $X$ and $Y$ are dependent
+    \begin{solution}
+        Since $P(X=0)\cdot P(Y=0)\neq 0=P(X=0,Y=0)$, $X$ and $Y$ are 
+        dependent.
+    \end{solution}
+    
+    \item Compute $P(Y=1\vert X=2)$
+    \begin{solution}
+        \begin{align*}
+            P(Y=1\vert X=2)&=\frac{P(X=2,Y=1)}{P(X=2)}\\
+            &=\frac{f(x,1)}{f_{X}(2)}\\
+            &=\frac{5}{22}
+        \end{align*}
+    \end{solution}
+\end{qparts}
+
+
+\section*{Q7}
+Suppose that a Bayesian spam filter is trained on a set of 1000
+spam messages and 400 messages that are not spam. The
+word “opportunity” appears in 175 spam messages and 20
+messages that are not spam. Would an incoming message be
+rejected as spam if it contains the word “opportunity” and the
+threshold for rejecting a message is 0.9?
+\begin{solution}
+    Let $S$ be the word being in spam message and then the word 
+    and then the word not in spam is denoted as $\overline{S}$, and $A$ be the message contains the word ``opportunity''. Then the chance that the incoming message that contains ``opportunity'' is a spam is
+    \begin{align*}
+        P(S \vert A)&=\frac{P(A\vert S)}{P(A\vert S)+P(A\vert \overline{S})}\\
+        &=\frac{175 / 1000}{175 / 1000 + 20 / 400}=\frac{7}{9}\approx  0.778<0.9
+    \end{align*}
+    Therefore, the incoming message will not be rejected.
+\end{solution}
+
+\section*{Q8}
+Suppose that 8\% of the patients tested in a clinic are infected
+with HIV. Furthermore, suppose that when a blood test for
+HIV is given, 98\% of the patients infected with HIV test
+positive and that 3\% of the patients not infected with HIV test
+positive. What is the probability that
+\begin{solution}
+    Denote $X$ as one in the clinic infected with HIV, then $\overline{X}$ means 
+    one in the clinic not infected with HIV.
+    Denote $Y$ as one test positive in a blood test, then $\overline{Y}$ 
+    means one is test negative in a blood test.
+
+    From the description of the problem, we have 
+    \begin{itemize}
+        \item $P(X)=8\%$ 
+        \item $P(\overline{X})=1-P(X)=92\%$
+        \item $P(Y\vert X)=98\%$
+        \item  $P(Y\vert \overline{X})=3\%$
+    \end{itemize}
+\begin{qparts}
+    \item a patient testing positive for HIV is infected with it?\\
+    $\textbf{Ans}=P(X\vert Y)=\frac{P(Y\vert X)P(X)}{P(Y\vert X)P(X)+P(Y\vert \overline{X})P(\overline{X})}=\frac{98\%\cdot 8\%}{98\%\cdot 8\%+3\%\cdot 92\%}=\frac{196}{265}$
+
+    \item a patient testing positive for HIV is not infected with it?\\
+    $\textbf{Ans}=P(\overline{X}\vert Y)=1-P(X\vert Y)=\frac{69}{265}$
+
+    \item a patient testing negative for HIV is infected with it?\\
+    First, we calculate $P(Y)=P(Y\vert X)P(X)+P(Y\vert \overline{X})P(\overline{X})=\frac{53}{500}$. Thus, $P(\overline{Y})=1-P(Y)=\frac{447}{500}$.
+    Therefore, $\textbf{Ans}=P(X\vert \overline{Y})=\frac{P(\overline{Y}\vert X)P(X)}{P(\overline{Y})}=\frac{(1-P(Y\vert X))P(X)}{P(\overline{Y})}=\frac{4}{2235}$
+
+    \item a patient testing negative for HIV is not infected with it?\\
+    $\textbf{Ans}=P(\overline{X}\vert \overline{Y})=1-P(X\vert \overline{Y})=\frac{2231}{2235}$
+
+\end{qparts}
+\end{solution}
+
+\section*{Q9}
+Let $X$ be the number appearing on the first dice when two fair dice 
+are rolled and let $Y$ be the sum of the numbers appearing on 
+the two dice. Show that $E(X)E(Y)\neq E(XY)$.
+\begin{solution}
+    Since the dices are all fair, each number hold the same possibility, and 
+    thus $E(X)=\frac{1+2+3+ \cdots +6}{6}=\frac{7}{2}$, $E(Y)=2E(X)=7$.
+    And in a similar way, all possible outcomes after the multiplications have the same possibility $\frac{1}{36}$, 
+    so $E(XY)=\frac{\sum_{i=1}^{6}\left( i\cdot \sum_{j=1}^{6}i+j \right)}{36}=\frac{987}{36}$. Hence, $E(X)E(Y)\neq E(XY)$.
+\end{solution}
+
+\section*{Q10}
+The \textbf{law of total expectation} states that if sample space 
+$\Omega$ is the disjoint union of events $S_1,S_2, \ldots S_{n}$ 
+and $X$ is a r.v., then $E(X)=\sum_{j=1}^{n}E(X \vert S_{j})P(S_{j})$,
+where $E(X \vert S_{j})$ is the \textbf{conditional expectation} of 
+r.v. given event $S_{j} $ from sample space $\Omega$, and can be computed
+as $E(X \vert S_{j})=\sum_{r \in X(\Omega)}r\cdot P(X=r \vert S_{j})$
+\begin{qparts}
+    
+    \item Prove the law of total expectation
+    \begin{proof}
+        \begin{align*}
+            E(X)&=\sum_{r \in X(\Omega)}r\cdot P(X=r)\\
+            &=\sum_{r \in X(\Omega)}r\cdot \sum_{j=1}^{n}P(X=r\vert S_{j})P(S_{j})\\
+            &=\sum_{j=1}^{n}P(S_{j})\cdot \sum_{r \in X(\Omega)}r\cdot P(X=r\vert S_{j})\\
+            &=\sum_{j=1}^{n}E(X\vert S_{j})P(S_{j})
+        \end{align*}
+    \end{proof}
+
+
+    \item Use the law of total expectation to find the average weight
+    of a breeding elephant seal, giben that 12\% of the breeding elephant
+    seals are male and the rest are female, and the expected weights of
+    a breeding elephant is 4200 pounds for a male and 1100 pounds for a
+    female.
+    \begin{solution}
+        $\textbf{Ans}=12\%\cdot 4200+88\%\cdot 1100=1472$.
+    \end{solution}
+\end{qparts}
+
+
+\end{document}
