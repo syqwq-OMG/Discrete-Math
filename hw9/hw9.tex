@@ -1,4 +1,3 @@
-% Search for all the places that say "PUT SOMETHING HERE".
 \documentclass[11pt]{article}
 \input{../style.tex}
 
@@ -31,9 +30,9 @@ distribution for the number of defectives.
 
     Then, we have
     \begin{align*}
-        P(X=0)&=C(17 , 2) / C(20 , 2)=\frac{68}{95} \\
-        P(X=1)&=C(3 , 1)\cdot C(17 , 1) / C(20 , 2)=\frac{51}{190}\\
-        P(X=2)&=C(3,2) / C(20 , 2) =\frac{3}{190} 
+        \mathbb{P}(X=0)&=C(17 , 2) / C(20 , 2)=\frac{68}{95} \\
+        \mathbb{P}(X=1)&=C(3 , 1)\cdot C(17 , 1) / C(20 , 2)=\frac{51}{190}\\
+        \mathbb{P}(X=2)&=C(3,2) / C(20 , 2) =\frac{3}{190} 
     \end{align*}
 
 \end{solution}
@@ -45,21 +44,21 @@ probability and distribution functions for the following r.v.s.
     
     \item The number of heads before the first tail;
     \begin{solution}
-        Denote the r.v. as $X$. Then $P(X=k)=(\frac{1}{2})^{\min \{ k+1,4 \}}$ where 
+        Denote the r.v. as $X$. Then $\mathbb{P}(X=k)=(\frac{1}{2})^{\min \{ k+1,4 \}}$ where 
         $k \in \{ 0,1,2,3,4 \}$.
     \end{solution}
 
     \item The number of heads after the first tail;
     \begin{solution}
         Denote the r.v. as $X$. 
-        Then $P(X=k)=\sum_{i=1}^{4-k}C(4-i,k)\cdot (\frac{1}{2})^{4}$, where 
-        $k \in \{ 1,2,3 \}$, and the core idea is to enumerate the position of the initial tail. Then for the $X=0$ case, since the first tail ensure that there must exist a tail in the consequence which cannot cover all the possible case of tossing 4 fair coins, so to make the distribution function work, we define $P(X=0):=1-\sum_{i=1}^{3}P(X=i)$ to ensure the property of the distribution function is well-defined.
+        Then $\mathbb{P}(X=k)=\sum_{i=1}^{4-k}C(4-i,k)\cdot (\frac{1}{2})^{4}$, where 
+        $k \in \{ 1,2,3 \}$, and the core idea is to enumerate the position of the initial tail. Then for the $X=0$ case, since the first tail ensure that there must exist a tail in the consequence which cannot cover all the possible case of tossing 4 fair coins, so to make the distribution function work, we define $\mathbb{P}(X=0):=1-\sum_{i=1}^{3}\mathbb{P}(X=i)$ to ensure the property of the distribution function is well-defined.
     \end{solution}
 
     \item The number of heads less the number of tails.
     \begin{solution}
-        Denote the r.v. as $X$. Then $P(X=-4)=P(X=4)=\frac{1}{16}$,
-        $P(X=-2)=P(X=2)=\frac{1}{4}$, $P(X=0)=\frac{3}{8}$.
+        Denote the r.v. as $X$. Then $\mathbb{P}(X=-4)=\mathbb{P}(X=4)=\frac{1}{16}$,
+        $\mathbb{P}(X=-2)=\mathbb{P}(X=2)=\frac{1}{4}$, $\mathbb{P}(X=0)=\frac{3}{8}$.
     \end{solution}
 \end{qparts}
 
@@ -71,7 +70,7 @@ of $X$.
     Assume the possibility of tossing a head is $p$, then the 
     tail should be $1-p$. Then we have
 \begin{equation*}
-  P(X=k)=\binom{3}{k}\cdot p^{k}(1-p)^{3-k}
+  \mathbb{P}(X=k)=\binom{3}{k}\cdot p^{k}(1-p)^{3-k}
 \end{equation*}
 where $k \in \{ 0,1,2,3 \}$.
 \end{solution}
@@ -85,7 +84,7 @@ $X$ .
 \begin{solution}
     For $k \in \{ 0,1,2 \}$,
     \begin{equation*}
-      P(X=k)=\binom{5}{k}\cdot \binom{3}{2-k}\cdot
+      \mathbb{P}(X=k)=\binom{5}{k}\cdot \binom{3}{2-k}\cdot
       \binom{8}{2}^{-1}
     \end{equation*}
 \end{solution}
@@ -103,7 +102,7 @@ the ﬁrst box if she has selected a blue ball?
     stands for picking from the second box. Denote $B$ as picking a 
     blue ball. Then we have 
     \begin{align*}
-        P(F \vert B)&=\frac{P(B\vert F)}{P(B \vert F)+P(B \vert \overline{F})}\\
+        \mathbb{P}(F \vert B)&=\frac{\mathbb{P}(B\vert F)}{\mathbb{P}(B \vert F)+\mathbb{P}(B \vert \overline{F})}\\
         &=\frac{3 / 5}{3 / 5+1 / 5}=\frac{3}{4}
     \end{align*}
 \end{solution}
@@ -122,15 +121,15 @@ $0\le x\le 2$, $0\le y\le 3$, and $f(x,y)=0$ otherwise.
         Thus, $c=\frac{1}{42}$.
     \end{solution}
     
-    \item Find $P(X=2,Y=1)$
+    \item Find $\mathbb{P}(X=2,Y=1)$
     \begin{solution}
-        $P(X=2,Y=1)=f(2,1)=\frac{5}{42}$.
+        $\mathbb{P}(X=2,Y=1)=f(2,1)=\frac{5}{42}$.
     \end{solution}
     
-    \item Find $P(X\ge 1,Y\le 2)$
+    \item Find $\mathbb{P}(X\ge 1,Y\le 2)$
     \begin{solution}
         \begin{align*}
-          P(X\ge 1,Y\le 2)&=\sum_{x=1}^{2}\sum_{y=0}^{2}f(x,y)=\sum_{x=1}^{2}\sum_{y=0}^{2}\frac{1}{42}(2x+y)=\frac{4}{7}
+          \mathbb{P}(X\ge 1,Y\le 2)&=\sum_{x=1}^{2}\sum_{y=0}^{2}f(x,y)=\sum_{x=1}^{2}\sum_{y=0}^{2}\frac{1}{42}(2x+y)=\frac{4}{7}
         \end{align*}
     \end{solution}
 
@@ -138,23 +137,23 @@ $0\le x\le 2$, $0\le y\le 3$, and $f(x,y)=0$ otherwise.
     \item Find the marginal probability functions of $X$ and $Y$
     \begin{solution}
         \begin{equation*}
-          P(X=x)=f_{X}(x)=\sum_{y=0}^{3}f(x,y)=\frac{1}{42}(8x+6)
+          \mathbb{P}(X=x)=f_{X}(x)=\sum_{y=0}^{3}f(x,y)=\frac{1}{42}(8x+6)
         \end{equation*}
         \begin{equation*}
-          P(Y=y)=f_{Y}(y)=\sum_{x=0}^{2}f(x,y)=\frac{1}{42}(3y+6)
+          \mathbb{P}(Y=y)=f_{Y}(y)=\sum_{x=0}^{2}f(x,y)=\frac{1}{42}(3y+6)
         \end{equation*}
     \end{solution}
     
     \item Show that the r.v.s $X$ and $Y$ are dependent
     \begin{solution}
-        Since $P(X=0)\cdot P(Y=0)\neq 0=P(X=0,Y=0)$, $X$ and $Y$ are 
+        Since $\mathbb{P}(X=0)\cdot \mathbb{P}(Y=0)\neq 0=\mathbb{P}(X=0,Y=0)$, $X$ and $Y$ are 
         dependent.
     \end{solution}
     
-    \item Compute $P(Y=1\vert X=2)$
+    \item Compute $\mathbb{P}(Y=1\vert X=2)$
     \begin{solution}
         \begin{align*}
-            P(Y=1\vert X=2)&=\frac{P(X=2,Y=1)}{P(X=2)}\\
+            \mathbb{P}(Y=1\vert X=2)&=\frac{\mathbb{P}(X=2,Y=1)}{\mathbb{P}(X=2)}\\
             &=\frac{f(x,1)}{f_{X}(2)}\\
             &=\frac{5}{22}
         \end{align*}
@@ -173,7 +172,7 @@ threshold for rejecting a message is 0.9?
     Let $S$ be the word being in spam message and then the word 
     and then the word not in spam is denoted as $\overline{S}$, and $A$ be the message contains the word ``opportunity''. Then the chance that the incoming message that contains ``opportunity'' is a spam is
     \begin{align*}
-        P(S \vert A)&=\frac{P(A\vert S)}{P(A\vert S)+P(A\vert \overline{S})}\\
+        \mathbb{P}(S \vert A)&=\frac{\mathbb{P}(A\vert S)}{\mathbb{P}(A\vert S)+\mathbb{P}(A\vert \overline{S})}\\
         &=\frac{175 / 1000}{175 / 1000 + 20 / 400}=\frac{7}{9}\approx  0.778<0.9
     \end{align*}
     Therefore, the incoming message will not be rejected.
@@ -193,24 +192,24 @@ positive. What is the probability that
 
     From the description of the problem, we have 
     \begin{itemize}
-        \item $P(X)=8\%$ 
-        \item $P(\overline{X})=1-P(X)=92\%$
-        \item $P(Y\vert X)=98\%$
-        \item  $P(Y\vert \overline{X})=3\%$
+        \item $\mathbb{P}(X)=8\%$ 
+        \item $\mathbb{P}(\overline{X})=1-\mathbb{P}(X)=92\%$
+        \item $\mathbb{P}(Y\vert X)=98\%$
+        \item  $\mathbb{P}(Y\vert \overline{X})=3\%$
     \end{itemize}
 \begin{qparts}
     \item a patient testing positive for HIV is infected with it?\\
-    $\textbf{Ans}=P(X\vert Y)=\frac{P(Y\vert X)P(X)}{P(Y\vert X)P(X)+P(Y\vert \overline{X})P(\overline{X})}=\frac{98\%\cdot 8\%}{98\%\cdot 8\%+3\%\cdot 92\%}=\frac{196}{265}$
+    $\textbf{Ans}=\mathbb{P}(X\vert Y)=\frac{\mathbb{P}(Y\vert X)\mathbb{P}(X)}{\mathbb{P}(Y\vert X)\mathbb{P}(X)+\mathbb{P}(Y\vert \overline{X})\mathbb{P}(\overline{X})}=\frac{98\%\cdot 8\%}{98\%\cdot 8\%+3\%\cdot 92\%}=\frac{196}{265}$
 
     \item a patient testing positive for HIV is not infected with it?\\
-    $\textbf{Ans}=P(\overline{X}\vert Y)=1-P(X\vert Y)=\frac{69}{265}$
+    $\textbf{Ans}=\mathbb{P}(\overline{X}\vert Y)=1-\mathbb{P}(X\vert Y)=\frac{69}{265}$
 
     \item a patient testing negative for HIV is infected with it?\\
-    First, we calculate $P(Y)=P(Y\vert X)P(X)+P(Y\vert \overline{X})P(\overline{X})=\frac{53}{500}$. Thus, $P(\overline{Y})=1-P(Y)=\frac{447}{500}$.
-    Therefore, $\textbf{Ans}=P(X\vert \overline{Y})=\frac{P(\overline{Y}\vert X)P(X)}{P(\overline{Y})}=\frac{(1-P(Y\vert X))P(X)}{P(\overline{Y})}=\frac{4}{2235}$
+    First, we calculate $\mathbb{P}(Y)=\mathbb{P}(Y\vert X)\mathbb{P}(X)+\mathbb{P}(Y\vert \overline{X})\mathbb{P}(\overline{X})=\frac{53}{500}$. Thus, $\mathbb{P}(\overline{Y})=1-\mathbb{P}(Y)=\frac{447}{500}$.
+    Therefore, $\textbf{Ans}=\mathbb{P}(X\vert \overline{Y})=\frac{\mathbb{P}(\overline{Y}\vert X)\mathbb{P}(X)}{\mathbb{P}(\overline{Y})}=\frac{(1-\mathbb{P}(Y\vert X))\mathbb{P}(X)}{\mathbb{P}(\overline{Y})}=\frac{4}{2235}$
 
     \item a patient testing negative for HIV is not infected with it?\\
-    $\textbf{Ans}=P(\overline{X}\vert \overline{Y})=1-P(X\vert \overline{Y})=\frac{2231}{2235}$
+    $\textbf{Ans}=\mathbb{P}(\overline{X}\vert \overline{Y})=1-\mathbb{P}(X\vert \overline{Y})=\frac{2231}{2235}$
 
 \end{qparts}
 \end{solution}
@@ -218,30 +217,30 @@ positive. What is the probability that
 \section*{Q9}
 Let $X$ be the number appearing on the first dice when two fair dice 
 are rolled and let $Y$ be the sum of the numbers appearing on 
-the two dice. Show that $E(X)E(Y)\neq E(XY)$.
+the two dice. Show that $\mathbb{E}[X]\mathbb{E}[Y]\neq \mathbb{E}[XY]$.
 \begin{solution}
     Since the dices are all fair, each number hold the same possibility, and 
-    thus $E(X)=\frac{1+2+3+ \cdots +6}{6}=\frac{7}{2}$, $E(Y)=2E(X)=7$.
+    thus $\mathbb{E}[X]=\frac{1+2+3+ \cdots +6}{6}=\frac{7}{2}$, $\mathbb{E}[Y]=2\mathbb{E}[X]=7$.
     And in a similar way, all possible outcomes after the multiplications have the same possibility $\frac{1}{36}$, 
-    so $E(XY)=\frac{\sum_{i=1}^{6}\left( i\cdot \sum_{j=1}^{6}i+j \right)}{36}=\frac{987}{36}$. Hence, $E(X)E(Y)\neq E(XY)$.
+    so $\mathbb{E}[XY]=\frac{\sum_{i=1}^{6}\left( i\cdot \sum_{j=1}^{6}i+j \right)}{36}=\frac{987}{36}$. Hence, $\mathbb{E}[X]\mathbb{E}[Y]\neq \mathbb{E}(XY)$.
 \end{solution}
 
 \section*{Q10}
 The \textbf{law of total expectation} states that if sample space 
 $\Omega$ is the disjoint union of events $S_1,S_2, \ldots S_{n}$ 
-and $X$ is a r.v., then $E(X)=\sum_{j=1}^{n}E(X \vert S_{j})P(S_{j})$,
-where $E(X \vert S_{j})$ is the \textbf{conditional expectation} of 
+and $X$ is a r.v., then $\mathbb{E}[X]=\sum_{j=1}^{n}\mathbb{E}[X \vert S_{j}]\mathbb{P}(S_{j})$,
+where $\mathbb{E}[X \vert S_{j}]$ is the \textbf{conditional expectation} of 
 r.v. given event $S_{j} $ from sample space $\Omega$, and can be computed
-as $E(X \vert S_{j})=\sum_{r \in X(\Omega)}r\cdot P(X=r \vert S_{j})$
+as $\mathbb{E}[X \vert S_{j}]=\sum_{r \in X(\Omega)}r\cdot \mathbb{P}(X=r \vert S_{j})$
 \begin{qparts}
     
     \item Prove the law of total expectation
     \begin{proof}
         \begin{align*}
-            E(X)&=\sum_{r \in X(\Omega)}r\cdot P(X=r)\\
-            &=\sum_{r \in X(\Omega)}r\cdot \sum_{j=1}^{n}P(X=r\vert S_{j})P(S_{j})\\
-            &=\sum_{j=1}^{n}P(S_{j})\cdot \sum_{r \in X(\Omega)}r\cdot P(X=r\vert S_{j})\\
-            &=\sum_{j=1}^{n}E(X\vert S_{j})P(S_{j})
+            \mathbb{E}[X]&=\sum_{r \in X(\Omega)}r\cdot \mathbb{P}(X=r)\\
+            &=\sum_{r \in X(\Omega)}r\cdot \sum_{j=1}^{n}\mathbb{P}(X=r\vert S_{j})\mathbb{P}(S_{j})\\
+            &=\sum_{j=1}^{n}\mathbb{P}(S_{j})\cdot \sum_{r \in X(\Omega)}r\cdot \mathbb{P}(X=r\vert S_{j})\\
+            &=\sum_{j=1}^{n}\mathbb{E}[X\vert S_{j}]\mathbb{P}(S_{j})
         \end{align*}
     \end{proof}
 
@@ -255,6 +254,306 @@ as $E(X \vert S_{j})=\sum_{r \in X(\Omega)}r\cdot P(X=r \vert S_{j})$
         $\textbf{Ans}=12\%\cdot 4200+88\%\cdot 1100=1472$.
     \end{solution}
 \end{qparts}
+
+\section*{Q11}
+What is the expected number of heads that come up when a
+fair coin is flipped five times?
+\begin{solution}
+    Let $X$ be the r.v. that equals \#heads in the whole process. And
+    let $X_{i}$ be 1 if the $i$th flip is head, and 0 if it is tail. 
+    Therefore, we have 
+    $$
+    \mathbb{E}[X]=\mathbb{E}\left[ \sum_{i=1}^{5}X_{i} \right]=\sum_{i=1}^{5}\mathbb{E}[X_{i}]=5\cdot \frac{1}{2}=\frac{5}{2}
+    $$
+\end{solution}
+
+\section*{Q12}
+What is the expected number of times a 6 appears when a fair
+dice is rolled 10 times?
+\begin{solution}
+    Let $X$ be the r.v. that equals times 6 appears in the whole process. And
+    let $X_{i}$ be 1 if the $i$th toss is 6, and 0 if it is not. 
+    Therefore, we have 
+    $$
+    \mathbb{E}[X]=\mathbb{E}\left[ \sum_{i=1}^{10}X_{i} \right]=\sum_{i=1}^{10}\mathbb{E}[X_{i}]=10\cdot \frac{1}{6}=\frac{5}{3}
+    $$
+\end{solution}
+\section*{Q13}
+The final exam of a discrete mathematics course consists of 50
+true/false questions, each worth two points, and 25
+multiple-choice questions, each worth four points. The
+probability that Linda answers a true/false question correctly is
+0.9, and the probability that she answers a multiple-choice
+question correctly is 0.8. What is her expected score on the
+final?
+\begin{solution}
+    Using the \textbf{definition} of expectation and the \textbf{linearity} of expectation, we get $\text{Ans}=50\cdot 2\cdot 0.9+25\cdot 4\cdot 0.8=170$.
+\end{solution}
+
+\section*{Q14}
+Suppose that we roll a pair of fair dice until the sum of the
+numbers on the dice is seven. What is the expected number of
+times we roll the dice?
+\begin{solution}
+    The probability $p$ of getting the sum of the numbers is 7
+    is $p=\frac{2+2+2}{6\cdot 6}=\frac{1}{6}$, so the $\text{Ans}=\frac{1}{p}=6$.
+\end{solution}
+\section*{Q15}
+Let $X_{n}$ be the r.v. that equals \#tails minus \#heads when $n$
+fair coins are flipped.
+\begin{qparts}
+    
+    \item What is the expected value of $X_{n}$
+    \begin{solution}
+        Let $Y_{i}$ be 1 if the $i$th flip is head, and -1 if the $i$th 
+        flip is tail, then $X_{n}=\sum_{i=1}^{n }Y_{i}$. Therefore, using the linearity of expectation, we get
+        $\mathbb{E}(X)=\sum_{i=1}^{n }\mathbb{E}[Y_{i}]=0$.
+    \end{solution}
+    \item What is the variance of $X_{n}$
+    \begin{solution}
+        Since the $Y_{i}$ are pair-wise independent, so 
+    \begin{align*}
+        \operatorname{Var}(X_{n})&=\operatorname{Var}\left( \sum_{i=1}^{n }Y_{i} \right)=\sum_{i=1}^{n }\operatorname{Var}(Y_{i })\\
+        &=\sum_{i=1}^{n }\left[ \mathbb{E}\left[ Y_{i }^{2} \right]-\left(\mathbb{E}\left[ Y_{i} \right] \right)^{2}   \right]=n
+    \end{align*}
+    \end{solution}
+    
+\end{qparts}
+\section*{Q16}
+Suppose that $X_1$ and $X_2$ are independent Bernoilli trials each 
+with probability $1 /2$ , and let $X_3=(X_1+X_2) \operatorname{mod} 2$.
+\begin{qparts}
+
+\item Show that $X_1$, $X_2$, and $X_3$ are pairwise independent, but 
+$X_3$ and $X_1+X_2$ are not independent.
+\begin{solution}
+    As the problem says $X_1$ and $X_2$ are independent, we just need to prove $X_1$ and $X_3$ are independent. (the independence between 
+    $X_2$ and $X_3$ can be proved in a simillar way).
+    \begin{equation*}
+      \mathbb{P}\left[ X_3 =0,X_1=0 \right]=\frac{1}{4}=\mathbb{P}\left[ X_3=0 \right]\cdot \mathbb{P}\left[ X_1=0 \right]=\frac{1}{2}\cdot \frac{1}{2}   
+    \end{equation*}
+    and, this holds for the other 3 cases, so we conclude $X_1$ and $X_3$ 
+    are independent.
+
+    However, $\mathbb{P}\left[ X_3=0 \right] =1 / 2$, but $\mathbb{P}\left[ X_1 +X_2=0\right]=\mathbb{P}\left[ X_1=0,X_2=0 \right]=1 / 4  $, so 
+    $X_3$ and $X_1+X_2$ are not independent.
+\end{solution}
+
+\item Show that $\operatorname{Var}\left( X_1+X_2+X_3 \right)=
+\operatorname{Var}(X_1)+\operatorname{Var}(X_2)
++\operatorname{Var}(X_3)$.
+\begin{proof}
+    Since, $X_1$, $X_2$, and $X_3$ are pairwise independent, $\forall i\neq j \in \{ 1,2,3 \}$ we have $
+    \mathbb{E}\left[ X_{i}X_j \right]=\mathbb{E}\left[ X_{i} \right]\mathbb{E}\left[ X_j \right]   $, then 
+    \begin{align*}
+      \operatorname{Var}(X_1+X_2+X_3)&=\mathbb{E}\left[ 
+        (X_1+X_2+X_3)^{2}
+       \right] 
+       -(\mathbb{E}\left[ X_1 \right]+\mathbb{E}\left[ X_2 \right] 
+       +\mathbb{E}\left[ X_3 \right]  )^{2}\\
+       &=\sum\mathbb{E}\left[ X_{i}^{2} \right] -(\mathbb{E}\left[ X_{i} \right] )^{2}+
+       2\sum_{cyc}\mathbb{E}\left[ X_{i}X_j \right]-
+       \mathbb{E}\left[ X_{i} \right] \mathbb{E}\left[ X_j \right] \\
+       &=\sum\operatorname{Var}(X_{i})=\operatorname{Var}(X_1)+
+       \operatorname{Var}(X_2)+\operatorname{Var}(X_3)
+    \end{align*}
+\end{proof}
+\end{qparts}
+
+\section*{Q17}
+The covariance of two r.v.s $X$ and $Y$ on a sample spacel $\Omega$, denoted by $\operatorname{Cov}(X,Y)$ is defined to be the expected value of 
+r.v. $(X-\mathbb{E}\left[ X  \right] )(Y-\mathbb{E}\left[ Y  \right] )$.
+That is $\operatorname{Cov}(X,Y)=\mathbb{E}\left[ 
+    (X-\mathbb{E}\left[ X  \right] )(Y-\mathbb{E}\left[ Y  \right] )
+ \right] $.
+\begin{qparts}
+    
+    \item Show that $\operatorname{Cov}(X,Y)=\mathbb{E}\left[ XY \right]
+    -\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right]   $, and use this result to conclude that $\operatorname{Cov}(X,Y)=0$ if $X$ and $Y$ are independent v.r.s.
+    \begin{proof}
+        Using the linearity of expectation, we have 
+        \begin{align*}
+            \operatorname{Cov}(X,Y)&=\mathbb{E}\left[ 
+                (X-\mathbb{E}\left[ X  \right] )(Y-\mathbb{E}\left[ Y  \right] )
+                \right]  \\
+            &=\mathbb{E}\left[ XY-X\mathbb{E}\left[ Y 
+            \right]  -Y\mathbb{E}\left[ X  \right] +\mathbb{E}\left[ X  \right] \mathbb{E}\left[ Y \right] \right] \\
+            &=\mathbb{E}\left[ XY  \right] -\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right]  
+            -\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right] 
+            +\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right]\\
+            &= \mathbb{E}\left[ XY \right]
+            -\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right]
+        \end{align*}
+        and, if $X$ and $Y$ are independent, we have $\mathbb{E}\left[ XY \right]
+            =\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right]$, so we 
+            can conclude $\operatorname{Cov}(X,Y)=0$.
+    \end{proof}
+    
+    \item Show that $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y)$.
+    \begin{proof}
+        By the definition of variance, we have 
+        \begin{align*}
+          \operatorname{Var}(X+Y)&=\mathbb{E}[ 
+            \left( X+Y \right)^{2}
+           ] -(\mathbb{E}\left[ X \right] +\mathbb{E}\left[ Y \right] )^{2}\\
+           &=\mathbb{E}\left[ X^{2} \right]-(\mathbb{E}\left[ X \right] ) ^{2}
+           +
+           \mathbb{E}\left[ Y^{2} \right]-(\mathbb{E}\left[ Y \right] ) ^{2}+
+           2\left( \mathbb{E}\left[ XY \right]
+           -\mathbb{E}\left[ X \right]\mathbb{E}\left[ Y \right] \right)\\
+           &=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y)
+        \end{align*}
+    \end{proof}
+
+\end{qparts}
+\section*{Q18}
+Suppose that the number of tin cans recycled in a day at a
+recycling center is a random variable with an expected value of
+50,000 and a variance of 10,000.
+\begin{qparts}
+    
+    \item Use Markov's inequality to find an upper bound on the
+    probability that the center will recycle more than 55,000 cans
+    on a particular day;
+    \begin{solution}
+        Let the non-negative r.v. denoted as $X$, then $\mathbb{E}\left[ X \right]=50,000 $, and $\operatorname{Var}(X)=10,000$.
+        Then 
+        \begin{align*}
+          \mathbb{P}\left[ X\ge 55,000 \right] \le \frac{50,000}{55,000}=\frac{10}{11}
+        \end{align*}
+    \end{solution}
+    
+    \item Use Chebyshev's inequality to provide a lower bound on the
+    probability that the center will recycle 40,000 to 60,000 cans
+    on a certain day;
+    \begin{solution}
+        \begin{align*}
+            \mathbb{P}\left[ 40,000\le X\le 60,000 \right]
+            &=\mathbb{P}\left[ \left\vert X-\mathbb{E}\left[ X \right]  \right\vert \le 10,000 \right]\\
+            &=1-\mathbb{P}\left[ \left\vert X-\mathbb{E}\left[ X \right] \right\vert \ge 10,000  \right]\\
+            &\ge \frac{10,000}{10,000^{2}}=\frac{1}{10,000}
+        \end{align*}
+    \end{solution}
+\end{qparts}
+
+\section*{Q19}
+In $n$ tosses of a fair coin, let $X$ be \#heads, what's the upper
+bound of $\mathbb{P}\left[ X>\frac{5n}{6} \right] $?
+\begin{qparts}
+    
+    \item Given by Markov's inequality
+    \begin{solution}
+        From the problem, we know $X \sim  B(n,\frac{1}{2})$. Then 
+        $\mathbb{E}\left[ X \right]=\frac{n}{2} $, and $\operatorname{Var}(X)=\frac{n}{4}$. Then 
+        \begin{align*}
+            \mathbb{P}\left[ X>\frac{5n}{6} \right] \le \frac{n / 2}{5n / 6}=\frac{3}{5}
+        \end{align*}
+    \end{solution}
+
+    \item Given by Chebyshev's inequality
+    \begin{solution}
+        \begin{align*}
+            \mathbb{P}\left[ X>\frac{5n}{6} \right]&=\mathbb{P}\left[ X-\mathbb{E}\left[ X \right]>\frac{n}{3}  \right] \\
+            &\le \mathbb{P}\left[ \left\vert X-\mathbb{E}\left[ X \right]  \right\vert >\frac{n}{3} \right] \le \frac{n / 4}{n^{2} / 9}=
+            \frac{9}{4n}
+        \end{align*}
+    \end{solution}
+\end{qparts}
+
+\section*{Q20}
+Let $X_{i}$ be a sequence of independent and Bernoulli r.v.s with 
+$\mathbb{P}\left[ X_{i}=1 \right]=p_{i} $. Assume that r.v. 
+$X=\sum_{i=1}^{n}X_{i}$ and $\mu = \sum_{i=1}^{n}p_{i}$. Prove 
+that 
+\begin{qparts}
+    
+    \item $\mathbb{P}\left[ X>(1+\delta)\mu \right]<
+    \left( \frac{e^{\delta}}{(1+\delta)^{1+\delta}} \right)^{\mu} $
+    \begin{proof}
+        We first know that $\mathbb{E}\left[ X \right]=\sum\mathbb{E}\left[ X_{i} \right] =\mu $. For $t>0$,
+        \begin{align*}
+            \mathbb{P}\left[ X>(1+\delta)\mu \right] &= 
+            \mathbb{P}\left[  \exp (tX) > \exp(t(1+\delta)\mu)\right]\\
+            &<\frac{\prod_{i=1}^{n}\mathbb{E}\left[ \exp(tX_{i}) \right]  }{\exp(t(1+\delta)\mu)} (\text{Markov inequality})
+        \end{align*}
+        Since $1+x<e^{x}$, we have
+        \begin{align*}
+            \mathbb{E}\left[ \exp(tX_{i}) \right]&=p_{i}e^{t}+(1-p_{i})
+        =1+p_{i}(e^{t}-1)<\exp(p_{i}(e^{t}-1))\\
+        \prod_{i=1}^{n } \mathbb{E}\left[ \exp(tX_{i}) \right]&<
+        \prod_{i=1}^{n }\exp(p^{i}(e^{t}-1))=\exp(\mu(e^{t}-1))
+        \end{align*}
+        Hence,
+        \begin{align*}
+            \mathbb{P}\left[ X>(1+\delta)\mu \right] &<
+            \frac{\exp(\mu(e^{t}-1))}{\exp(t(1+\delta)\mu)}\\
+            &=\exp(\mu(e^{t}-t-\delta t-1))
+        \end{align*}
+        Now it is time to choose $t$ to make the bound as tight as 
+        possible. Taking the derivative of $e^{t}-t-\delta t-1$ and setting $e^{t}-1-\delta=0$. We have $t=\ln(1+\delta)$.
+        $$
+        \mathbb{P}\left[ X>(1+\delta)\mu \right]<
+    \left( \frac{e^{\delta}}{(1+\delta)^{1+\delta}} \right)^{\mu} 
+        $$
+
+    \end{proof}
+
+    
+    \item $\mathbb{P}\left[ X>(1+\delta)\mu \right]<\exp(-\mu \delta^{2} / 3)$
+    \begin{solution}
+        First, we have 
+        \begin{align*}
+            (1+\delta)\ln(1+\delta)&=(1+\delta)\sum_{i=1}^{\infty}\frac{(-1)^{i-1}}{i}\delta ^{i}>\delta+\frac{1}{3}\delta^{2}\\
+            (1+\delta)^{1+\delta}&=\exp(\delta+\frac{1}{3}\delta^{2})
+        \end{align*}
+        Furthermore, 
+        $$
+        \mathbb{P}\left[ X>(1+\delta)\mu \right]<\left( \frac{e^{\delta}}{(1+\delta)^{1+\delta}} \right)^{\mu} <
+        \left( \frac{e^{\delta}}{\exp(\delta+\frac{1}{3}\delta^{2})} \right)^{\mu} =\exp(-\mu \delta^{2} / 3)
+        $$
+    \end{solution}
+\end{qparts}
+\section*{Q20}
+Let $X_{i}$ be a sequence of independent identical distribution r.v.s.
+Let $\overline{X}=\frac{1}{n}\sum_{i=1}^{n }X_{i}$, please compute that
+\begin{qparts}
+    
+    \item $\operatorname{Var}(\overline{X})$
+    \begin{solution}
+        $\operatorname{Var}(\overline{X})=\frac{1}{n^{2}}\sum_{i=1}^{n }\operatorname{Var}(X_{i})=\frac{1}{n}\operatorname{Var}(X_{i})$.
+    \end{solution}
+
+    \item $\mathbb{E}\left[ X_{i}-\overline{X} \right] $
+    \begin{solution}
+        $\mathbb{E}\left[ X_{i}-\overline{X} \right] =
+        \mathbb{E}\left[ X_{i} \right]-\frac{1}{n}\sum_{i=1}^{n }\mathbb{E}\left[ X_{i} \right] =0 $.
+    \end{solution}
+
+
+    \item $\operatorname{Var}(X_{i}-\overline{X})$
+    \begin{solution}
+        $\operatorname{Var}(X_{i}-\overline{X})=
+        \operatorname{Var}\left( \left( 1-\frac{1}{n} \right)X_{i}- \frac{1}{n}\sum_{j\neq i}X_{j} \right)
+        =\left( 1-\frac{1}{n} \right)^{2}\operatorname{Var}(X_{i})+\frac{n-1}{n^{2}}\operatorname{Var}(X_{i})\\=\frac{n-1}{n }\operatorname{Var}(X_{i})
+        $ .
+    \end{solution}
+
+    \item $\mathbb{E}\left[ \sum_{i=1}^{n }(X_{i}-\overline{X})^{2} \right] $
+    \begin{solution}
+        $\mathbb{E}\left[ \sum_{i=1}^{n }(X_{i}-\overline{X})^{2} \right] 
+        =\sum_{i=1}^{n}\mathbb{E}\left[ (X_{i}-\overline{X})^{2} \right]
+        =n\mathbb{E}\left[ (X_{i}-\overline{X})^{2} \right]
+        \\=n\left( \mathbb{E}\left[ \left( X_{i}-\overline{X} \right)^{2} \right]
+        -\left( \mathbb{E}\left[ X_{i}-\overline{X} \right]  \right)^{2} \right)
+        =(n-1)\operatorname{Var}(X_{i})$
+    \end{solution}
+    \item $\operatorname{Var}\left( \frac{X_{i}-\mathbb{E}\left[ X_{i} \right] }{\operatorname{Var}(X_{i})} \right)$
+    \begin{solution}
+        $\operatorname{Var}\left( \frac{X_{i}-\mathbb{E}\left[ X_{i} \right] }{\operatorname{Var}(X_{i})} \right)
+        =\frac{1}{\operatorname{Var}(X_{i})^{2}}\cdot \operatorname{Var}(X_{i})=\operatorname{Var}(X_{i})^{-1}$
+    \end{solution}
+\end{qparts}
+
 
 
 \end{document}
